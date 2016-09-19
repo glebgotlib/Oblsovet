@@ -13,6 +13,8 @@
 		8C89208E1D90590C001528FA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C89208C1D90590C001528FA /* Main.storyboard */; };
 		8C8920901D90590C001528FA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8C89208F1D90590C001528FA /* Assets.xcassets */; };
 		8C8920931D90590C001528FA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C8920911D90590C001528FA /* LaunchScreen.storyboard */; };
+		8C8920A01D9065BA001528FA /* MainTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C89209F1D9065BA001528FA /* MainTableViewController.m */; };
+		8C8920A31D906616001528FA /* MainTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C8920A21D906616001528FA /* MainTableViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,10 @@
 		8C89208F1D90590C001528FA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8C8920921D90590C001528FA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8C8920941D90590C001528FA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8C89209E1D9065BA001528FA /* MainTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainTableViewController.h; sourceTree = "<group>"; };
+		8C89209F1D9065BA001528FA /* MainTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainTableViewController.m; sourceTree = "<group>"; };
+		8C8920A11D906616001528FA /* MainTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainTableViewCell.h; sourceTree = "<group>"; };
+		8C8920A21D906616001528FA /* MainTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainTableViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +73,10 @@
 				8C8920911D90590C001528FA /* LaunchScreen.storyboard */,
 				8C8920941D90590C001528FA /* Info.plist */,
 				8C8920831D90590C001528FA /* Supporting Files */,
+				8C89209E1D9065BA001528FA /* MainTableViewController.h */,
+				8C89209F1D9065BA001528FA /* MainTableViewController.m */,
+				8C8920A11D906616001528FA /* MainTableViewCell.h */,
+				8C8920A21D906616001528FA /* MainTableViewCell.m */,
 			);
 			path = Oblsovet;
 			sourceTree = "<group>";
@@ -150,9 +160,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8C8920A01D9065BA001528FA /* MainTableViewController.m in Sources */,
 				8C89208B1D90590C001528FA /* ViewController.m in Sources */,
 				8C8920881D90590C001528FA /* AppDelegate.m in Sources */,
 				8C8920851D90590C001528FA /* main.m in Sources */,
+				8C8920A31D906616001528FA /* MainTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
