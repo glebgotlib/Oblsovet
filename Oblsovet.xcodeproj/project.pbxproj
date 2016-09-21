@@ -9,13 +9,15 @@
 /* Begin PBXBuildFile section */
 		8C0DF92F1D9076D500036295 /* NewsDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C0DF92E1D9076D500036295 /* NewsDetailsViewController.m */; };
 		8C0DF9361D907C5300036295 /* File.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8C0DF9381D907C5300036295 /* File.strings */; };
+		8C0DF93F1D915D1F00036295 /* LogInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C0DF93E1D915D1F00036295 /* LogInViewController.m */; };
+		8C0DF9441D9161E700036295 /* login.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C0DF9431D9161E700036295 /* login.png */; };
+		8C0DF9461D91641300036295 /* beautiful_stars_in_galaxy.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8C0DF9451D91641200036295 /* beautiful_stars_in_galaxy.jpg */; };
+		8C0EFDF81D92B9E800CC9578 /* MainTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C0EFDF31D92B9E800CC9578 /* MainTableViewController.m */; };
 		8C8920851D90590C001528FA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C8920841D90590C001528FA /* main.m */; };
 		8C8920881D90590C001528FA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C8920871D90590C001528FA /* AppDelegate.m */; };
-		8C89208B1D90590C001528FA /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C89208A1D90590C001528FA /* ViewController.m */; };
 		8C89208E1D90590C001528FA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C89208C1D90590C001528FA /* Main.storyboard */; };
 		8C8920901D90590C001528FA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8C89208F1D90590C001528FA /* Assets.xcassets */; };
 		8C8920931D90590C001528FA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C8920911D90590C001528FA /* LaunchScreen.storyboard */; };
-		8C8920A01D9065BA001528FA /* MainTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C89209F1D9065BA001528FA /* MainTableViewController.m */; };
 		8C8920A31D906616001528FA /* MainTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C8920A21D906616001528FA /* MainTableViewCell.m */; };
 /* End PBXBuildFile section */
 
@@ -29,18 +31,20 @@
 		8C0DF9371D907C5300036295 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/File.strings; sourceTree = "<group>"; };
 		8C0DF9391D907C5900036295 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/File.strings; sourceTree = "<group>"; };
 		8C0DF93A1D907C5F00036295 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/File.strings; sourceTree = "<group>"; };
+		8C0DF93D1D915D1F00036295 /* LogInViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LogInViewController.h; sourceTree = "<group>"; };
+		8C0DF93E1D915D1F00036295 /* LogInViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LogInViewController.m; sourceTree = "<group>"; };
+		8C0DF9431D9161E700036295 /* login.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = login.png; path = img/login.png; sourceTree = "<group>"; };
+		8C0DF9451D91641200036295 /* beautiful_stars_in_galaxy.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = beautiful_stars_in_galaxy.jpg; path = img/beautiful_stars_in_galaxy.jpg; sourceTree = "<group>"; };
+		8C0EFDF31D92B9E800CC9578 /* MainTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainTableViewController.m; sourceTree = "<group>"; };
 		8C8920801D90590C001528FA /* Oblsovet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Oblsovet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C8920841D90590C001528FA /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		8C8920861D90590C001528FA /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		8C8920871D90590C001528FA /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		8C8920891D90590C001528FA /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		8C89208A1D90590C001528FA /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		8C89208D1D90590C001528FA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8C89208F1D90590C001528FA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8C8920921D90590C001528FA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8C8920941D90590C001528FA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8C89209E1D9065BA001528FA /* MainTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainTableViewController.h; sourceTree = "<group>"; };
-		8C89209F1D9065BA001528FA /* MainTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainTableViewController.m; sourceTree = "<group>"; };
 		8C8920A11D906616001528FA /* MainTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainTableViewCell.h; sourceTree = "<group>"; };
 		8C8920A21D906616001528FA /* MainTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainTableViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -56,9 +60,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8C0DF9401D91619B00036295 /* Image */ = {
+			isa = PBXGroup;
+			children = (
+				8C0DF9451D91641200036295 /* beautiful_stars_in_galaxy.jpg */,
+				8C0DF9431D9161E700036295 /* login.png */,
+			);
+			name = Image;
+			sourceTree = "<group>";
+		};
+		8C0DF94C1D92934300036295 /* LSMenu */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = LSMenu;
+			sourceTree = "<group>";
+		};
 		8C8920771D90590C001528FA = {
 			isa = PBXGroup;
 			children = (
+				8C0DF94C1D92934300036295 /* LSMenu */,
 				8C8920821D90590C001528FA /* Oblsovet */,
 				8C8920811D90590C001528FA /* Products */,
 			);
@@ -77,20 +98,21 @@
 			children = (
 				8C8920861D90590C001528FA /* AppDelegate.h */,
 				8C8920871D90590C001528FA /* AppDelegate.m */,
-				8C8920891D90590C001528FA /* ViewController.h */,
-				8C89208A1D90590C001528FA /* ViewController.m */,
-				8C89208C1D90590C001528FA /* Main.storyboard */,
 				8C89208F1D90590C001528FA /* Assets.xcassets */,
-				8C8920911D90590C001528FA /* LaunchScreen.storyboard */,
+				8C0DF9381D907C5300036295 /* File.strings */,
+				8C0DF9401D91619B00036295 /* Image */,
 				8C8920941D90590C001528FA /* Info.plist */,
-				8C8920831D90590C001528FA /* Supporting Files */,
-				8C89209E1D9065BA001528FA /* MainTableViewController.h */,
-				8C89209F1D9065BA001528FA /* MainTableViewController.m */,
+				8C8920911D90590C001528FA /* LaunchScreen.storyboard */,
+				8C0DF93D1D915D1F00036295 /* LogInViewController.h */,
+				8C0DF93E1D915D1F00036295 /* LogInViewController.m */,
+				8C89208C1D90590C001528FA /* Main.storyboard */,
 				8C8920A11D906616001528FA /* MainTableViewCell.h */,
 				8C8920A21D906616001528FA /* MainTableViewCell.m */,
+				8C89209E1D9065BA001528FA /* MainTableViewController.h */,
+				8C0EFDF31D92B9E800CC9578 /* MainTableViewController.m */,
 				8C0DF92D1D9076D500036295 /* NewsDetailsViewController.h */,
 				8C0DF92E1D9076D500036295 /* NewsDetailsViewController.m */,
-				8C0DF9381D907C5300036295 /* File.strings */,
+				8C8920831D90590C001528FA /* Supporting Files */,
 			);
 			path = Oblsovet;
 			sourceTree = "<group>";
@@ -164,6 +186,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				8C0DF9361D907C5300036295 /* File.strings in Resources */,
+				8C0DF9441D9161E700036295 /* login.png in Resources */,
+				8C0DF9461D91641300036295 /* beautiful_stars_in_galaxy.jpg in Resources */,
 				8C8920931D90590C001528FA /* LaunchScreen.storyboard in Resources */,
 				8C8920901D90590C001528FA /* Assets.xcassets in Resources */,
 				8C89208E1D90590C001528FA /* Main.storyboard in Resources */,
@@ -177,8 +201,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8C8920A01D9065BA001528FA /* MainTableViewController.m in Sources */,
-				8C89208B1D90590C001528FA /* ViewController.m in Sources */,
+				8C0EFDF81D92B9E800CC9578 /* MainTableViewController.m in Sources */,
+				8C0DF93F1D915D1F00036295 /* LogInViewController.m in Sources */,
 				8C8920881D90590C001528FA /* AppDelegate.m in Sources */,
 				8C8920851D90590C001528FA /* main.m in Sources */,
 				8C0DF92F1D9076D500036295 /* NewsDetailsViewController.m in Sources */,

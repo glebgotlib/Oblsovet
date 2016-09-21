@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -121,5 +122,74 @@
             </objects>
             <point key="canvasLocation" x="-418" y="45"/>
         </scene>
+        <!--Log In View Controller-->
+        <scene sceneID="T2Y-Od-Vu1">
+            <objects>
+                <viewController storyboardIdentifier="LogInViewController" id="J0m-cL-6Mg" customClass="LogInViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="qnz-82-e77"/>
+                        <viewControllerLayoutGuide type="bottom" id="vVC-1c-zSW"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="v3Q-rt-n4n">
+                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="flag_I" translatesAutoresizingMaskIntoConstraints="NO" id="FfB-Bh-veZ"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Login" textAlignment="natural" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="IEb-k8-e5B">
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="emailAddress" returnKeyType="continue"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="T7m-On-rJw">
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="done" secureTextEntry="YES"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WIX-R7-fkq">
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="178" id="DH5-Fc-jai"/>
+                                    <constraint firstAttribute="height" constant="30" id="jIo-2g-PfF"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="26"/>
+                                <state key="normal" title="Log In">
+                                    <color key="titleColor" red="0.86274509799999999" green="0.098039215690000001" blue="0.1647058824" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="log_in_action:" destination="J0m-cL-6Mg" eventType="touchUpInside" id="cci-I8-RYw"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="FfB-Bh-veZ" secondAttribute="trailing" id="3kF-zj-ahp"/>
+                            <constraint firstItem="T7m-On-rJw" firstAttribute="top" secondItem="IEb-k8-e5B" secondAttribute="bottom" constant="14" id="6dE-Mb-T4d"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="WIX-R7-fkq" secondAttribute="trailing" constant="83" id="6fG-gZ-16F"/>
+                            <constraint firstItem="vVC-1c-zSW" firstAttribute="top" secondItem="FfB-Bh-veZ" secondAttribute="bottom" id="8tU-zK-kDz"/>
+                            <constraint firstItem="WIX-R7-fkq" firstAttribute="leading" secondItem="v3Q-rt-n4n" secondAttribute="leadingMargin" constant="82" id="B2H-EK-2yd"/>
+                            <constraint firstItem="FfB-Bh-veZ" firstAttribute="leading" secondItem="v3Q-rt-n4n" secondAttribute="leading" id="DIu-hh-igj"/>
+                            <constraint firstItem="T7m-On-rJw" firstAttribute="leading" secondItem="v3Q-rt-n4n" secondAttribute="leadingMargin" constant="16" id="EGG-h3-mum"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="IEb-k8-e5B" secondAttribute="trailing" constant="16" id="Idb-mE-OLn"/>
+                            <constraint firstItem="IEb-k8-e5B" firstAttribute="top" secondItem="qnz-82-e77" secondAttribute="bottom" constant="33" id="Lnt-gl-LLw"/>
+                            <constraint firstItem="IEb-k8-e5B" firstAttribute="leading" secondItem="v3Q-rt-n4n" secondAttribute="leadingMargin" constant="16" id="okc-1s-yzl"/>
+                            <constraint firstItem="WIX-R7-fkq" firstAttribute="top" secondItem="T7m-On-rJw" secondAttribute="bottom" constant="18" id="rQ4-Kn-0sx"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="T7m-On-rJw" secondAttribute="trailing" constant="16" id="vDq-hd-7s1"/>
+                            <constraint firstItem="FfB-Bh-veZ" firstAttribute="top" secondItem="qnz-82-e77" secondAttribute="bottom" id="y4E-Jx-w1t"/>
+                        </constraints>
+                    </view>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
+                    <connections>
+                        <outlet property="logIn_button" destination="WIX-R7-fkq" id="a0S-FK-BzO"/>
+                        <outlet property="login_textfield" destination="IEb-k8-e5B" id="gU9-sK-2ZZ"/>
+                        <outlet property="pass_textfield" destination="T7m-On-rJw" id="h6Q-SY-KFR"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bgu-ON-Xn1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-418.39999999999998" y="771.36431784107947"/>
+        </scene>
     </scenes>
+    <resources>
+        <image name="flag_I" width="375" height="667"/>
+    </resources>
 </document>

@@ -9,6 +9,8 @@
 #import "MainTableViewController.h"
 #import "MainTableViewCell.h"
 #import "NewsDetailsViewController.h"
+#import "LogInViewController.h"
+
 @interface MainTableViewController ()
 @property (nonatomic, strong) NSMutableArray *items;
 @property (strong ,nonatomic) NSMutableDictionary *cachedFeedImages;
@@ -32,12 +34,42 @@
     self.navigationItem.title = NSLocalizedString(@"News", nil);
     self.cachedFeedImages = [[NSMutableDictionary alloc] init];
     [self feedLine];
+    UIButton*but1 = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 22, 22)];
+    [but1 addTarget:self action:@selector(b1:) forControlEvents:UIControlEventTouchUpInside];
+    [but1 setBackgroundImage:[UIImage imageNamed:@"login.png"] forState:UIControlStateNormal];
+    UIBarButtonItem *anotherButton = [[UIBarButtonItem alloc] initWithCustomView:but1];
+    
+    UIButton*butz = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 10, 22)];
+    UIBarButtonItem *anotherButtonz = [[UIBarButtonItem alloc] initWithCustomView:butz];
+    
+    [self.navigationItem setRightBarButtonItems:[NSArray arrayWithObjects:anotherButton,anotherButtonz,anotherButtonz, nil]] ;
+
+    
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Left" style:UIBarButtonItemStylePlain target:self action:@selector(openLeftView)];
+
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
+
+- (IBAction)b1:(UIButton *)sender {
+    UIStoryboard *storyBoard = [self storyboard];
+    if ([[NSUserDefaults standardUserDefaults] stringForKey:@"preferenceName"]!=nil) {
+        LogInViewController*controller = [storyBoard instantiateViewControllerWithIdentifier:@"LogInViewController"];
+        [self.navigationController pushViewController:controller animated:YES];
+    }
+    else
+    {
+        LogInViewController *controller = [storyBoard instantiateViewControllerWithIdentifier:@"LogInViewController"];
+        [self.navigationController pushViewController:controller animated:YES];
+    }
+    
+}
+
+
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
