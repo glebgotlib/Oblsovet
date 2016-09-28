@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SlideNavigationController.h"
+#import "LeftMenuViewController.h"
+@interface MainTableViewController : UITableViewController<SlideNavigationControllerDelegate>
 
-@interface MainTableViewController : UITableViewController
-
+@property (strong, nonatomic) IBOutlet UITableView *mTable;
 @end

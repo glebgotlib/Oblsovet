@@ -1,54 +1,43 @@
 //
-//  MainTableViewController.m
+//  DeputatListTableViewController.m
 //  Oblsovet
 //
-//  Created by Gotlib on 19.09.16.
+//  Created by Gotlib on 28.09.16.
 //  Copyright © 2016 Yog.group. All rights reserved.
 //
 
-#import "MainTableViewController.h"
-#import "MainTableViewCell.h"
-#import "NewsDetailsViewController.h"
-#import "LogInViewController.h"
+#import "DeputatListTableViewController.h"
+#import "DeputatListTableViewCell.h"
+#import "DeputatDetailsViewController.h"
 
-
-@interface MainTableViewController ()
-@property (nonatomic, strong) NSMutableArray *items;
+@interface DeputatListTableViewController ()
 @property (strong ,nonatomic) NSMutableDictionary *cachedFeedImages;
+@property (nonatomic, strong) NSMutableArray *items;
 
 @end
 
-@implementation MainTableViewController
+@implementation DeputatListTableViewController
 {
     NSMutableArray *jsonResultsArray;
-    NSURLSessionConfiguration *feedSessionConfigObject;
-    NSURLSession *feedSession;
-    NSURL *feedUrl;
-    NSMutableURLRequest *feedRequest;
-    NSURLSessionDataTask *feedTask;
-    NSURL *recomendPersonalizedUrl;
-    NSDictionary* json;
-    
+    int selector;
 }
+
 - (BOOL)slideNavigationControllerShouldDisplayLeftMenu
 {
     return YES;
 }
+
+-(void)refresh:(NSString*)str{
+    NSLog(@"%@",str);
+    _objectR = str;
+    [self feedLine];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.navigationItem.title = NSLocalizedString(@"News", nil);
     self.cachedFeedImages = [[NSMutableDictionary alloc] init];
     [self feedLine];
-    UIButton*but1 = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 22, 22)];
-    [but1 addTarget:self action:@selector(b1:) forControlEvents:UIControlEventTouchUpInside];
-    [but1 setBackgroundImage:[UIImage imageNamed:@"login.png"] forState:UIControlStateNormal];
-    UIBarButtonItem *anotherButton = [[UIBarButtonItem alloc] initWithCustomView:but1];
-    
-    UIButton*butz = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 10, 22)];
-    UIBarButtonItem *anotherButtonz = [[UIBarButtonItem alloc] initWithCustomView:butz];
-    
-    [self.navigationItem setRightBarButtonItems:[NSArray arrayWithObjects:anotherButton,anotherButtonz,anotherButtonz, nil]] ;
-
+    self.navigationItem.title = NSLocalizedString(@"Deputat", nil);
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
@@ -56,73 +45,9 @@
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
-- (IBAction)b1:(UIButton *)sender {
-    UIStoryboard *storyBoard = [self storyboard];
-    if ([[NSUserDefaults standardUserDefaults] stringForKey:@"preferenceName"]==nil) {
-        LogInViewController*controller = [storyBoard instantiateViewControllerWithIdentifier:@"LogInViewController"];
-        [self.navigationController pushViewController:controller animated:YES];
-    }
-    else
-    {
-        NSLog(@"%@",[[NSUserDefaults standardUserDefaults] stringForKey:@"preferenceName"]);
-
-    }
-    
-}
-
-
-
-
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-}
-
-#pragma mark - Table view data source
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 1;
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return _items.count;
-}
--(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 101;
-}
-
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    static NSString *CellIdentifier = @"NewsCell";
-    MainTableViewCell *cell = (MainTableViewCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    if (cell == nil) {
-        cell = [[MainTableViewCell alloc]  initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
-    }
-    NSString *identifier = [NSString stringWithFormat:@"Celltd__%ld", (long)indexPath.row];
-    
-    if (([self.cachedFeedImages objectForKey:identifier] == nil)) {
-        [self imageThumb:[[jsonResultsArray objectAtIndex:indexPath.row] objectForKey:@"picture"] andImageView:cell.img index:indexPath.row];
-    }
-    else{
-        cell.img.image = [self.cachedFeedImages valueForKey:identifier];
-    }
-    cell.lab_title.lineBreakMode = NSLineBreakByWordWrapping;
-    cell.lab_title.numberOfLines = 0;
-    NSString* title = [[_items objectAtIndex:indexPath.row] objectForKey:@"title"];
-    if (title.length    >   110) {
-        cell.lab_title.numberOfLines    =   4;
-    }
-    cell.lab_title.text = title;
-    
-    return cell;
-}
-
--(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    UIStoryboard *storyBoard = [self storyboard];
-    NewsDetailsViewController *controller = [storyBoard instantiateViewControllerWithIdentifier:@"NewsDetailsViewController"];
-    controller.description_html_text = [[_items objectAtIndex:indexPath.row] objectForKey:@"fulltext"];
-    controller.description_title_text = [[_items objectAtIndex:indexPath.row] objectForKey:@"title"];
-    [self.navigationController pushViewController:controller animated:YES];
 }
 #pragma mark -
 #pragma mark Request
@@ -131,9 +56,9 @@
     [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
     
     [jsonResultsArray removeAllObjects];
-
     
-    feedUrl = [NSURL URLWithString:[NSString stringWithFormat:@"http://oblsovet.y.od.ua/allnews//json/"]];
+    //    reload input views
+    NSURL* feedUrl = [NSURL URLWithString:[NSString stringWithFormat:@"http://oblsovet.y.od.ua/json/?object=deputat&action=list"]];
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:feedUrl];
     NSLog(@"headUrl: %@", feedUrl);
     [request addValue:@"multipart/form-data" forHTTPHeaderField:@"Content-Type"];
@@ -148,12 +73,12 @@
                                   ^(NSData *data, NSURLResponse *response, NSError *error) {
                                       if (!error) {
                                           
-                                          NSLog(@"feedRequest - %@",request);
+//                                          NSLog(@"feedRequest - %@",request);
                                           NSError *JSONError = nil;
-                                          [jsonResultsArray removeAllObjects];
-                                          json = [NSJSONSerialization JSONObjectWithData:data options:0 error:&JSONError];
+//                                          NSDictionary* json;
                                           jsonResultsArray = [NSJSONSerialization JSONObjectWithData: data options: NSJSONReadingMutableContainers error: &JSONError];
-                                          //NSLog(@"feedLine  - - - %@",json);
+//                                          json = [NSJSONSerialization JSONObjectWithData:data options:0 error:&JSONError];
+//                                          NSLog(@"feedLine  - - - %@",json);
                                           if (JSONError) {
                                               UIAlertView* errorAlert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Sorry", nil) message:NSLocalizedString(@"Bad connection", nil)  delegate: self cancelButtonTitle:@"ok" otherButtonTitles:nil];
                                               [errorAlert show];
@@ -161,14 +86,13 @@
                                           }
                                           else{
                                               dispatch_async(dispatch_get_main_queue(),^{
-                                                  NSLog(@"YES %@",jsonResultsArray);
+//                                                  NSLog(@"YES %@",json);
                                                   [_items removeAllObjects];
                                                   _items = jsonResultsArray;
-                                                  [self.mTable reloadData];
+                                                  NSLog(@"--------- %@",_items);
+                                                  [self.tableView reloadData];
                                                   
                                               });
-                                              
-                                              
                                           }
                                       }
                                       else
@@ -176,7 +100,6 @@
                                           if (error.code !=-999){
                                               UIAlertView* errorAlert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Sorry", nil) message:NSLocalizedString(@"Bad connection", nil)  delegate: self cancelButtonTitle:@"ok" otherButtonTitles:nil];
                                               [errorAlert show];
-                                              //                                 [activityIndicator stopAnimating];
                                               [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
                                           }
                                       }
@@ -184,6 +107,48 @@
                                   }];
     // Start the task.
     [task resume];
+}
+
+#pragma mark - Table view data source
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return _items.count;
+}
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return 100;
+}
+
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    DeputatListTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"DeputatListTableViewCell" forIndexPath:indexPath];
+    if (cell == nil) {
+        cell = [[DeputatListTableViewCell alloc]  initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"DeputatListTableViewCell"];
+    }
+    cell.name_lab.text = [[_items objectAtIndex:indexPath.row] objectForKey:@"caption"];
+    cell.work_lab.text = [[_items objectAtIndex:indexPath.row] objectForKey:@"work"];
+    cell.work_lab.numberOfLines = 2;
+    NSString *identifier = [NSString stringWithFormat:@"Celltde__%ld", (long)indexPath.row];
+    if (([self.cachedFeedImages objectForKey:identifier] == nil)) {
+        [self imageThumb:[[_items objectAtIndex:indexPath.row] objectForKey:@"photo"] andImageView:cell.logo index:indexPath.row];
+    }
+    else    {
+        cell.logo.image = [self.cachedFeedImages valueForKey:identifier];
+    }
+
+    return cell;
+}
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    DeputatDetailsViewController*controller = [[DeputatDetailsViewController alloc] init];
+    controller.name_str = [[_items objectAtIndex:indexPath.row] objectForKey:@"caption"];
+    controller.work_str = [[_items objectAtIndex:indexPath.row] objectForKey:@"work"];
+    controller.education_str = [[_items objectAtIndex:indexPath.row] objectForKey:@"education"];
+    controller.takepart_str = [[_items objectAtIndex:indexPath.row] objectForKey:@"part"];
+    controller.photo_str = [[_items objectAtIndex:indexPath.row] objectForKey:@"photo"];
+    [self.navigationController pushViewController:controller animated:YES];
 }
 
 -(void)imageThumb:(NSString*)link andImageView:(UIImageView*)imgName index:(long)ind
@@ -195,7 +160,7 @@
         imgName.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageWithData:[NSMutableData dataWithData:[cachedImageResponse data]]]];
     } else {
         
-        NSString *identifier = [NSString stringWithFormat:@"Celltd__%ld", ind];
+        NSString *identifier = [NSString stringWithFormat:@"Celltde__%ld", ind];
         
         if (([self.cachedFeedImages objectForKey:identifier] != nil)) {
             imgName.hidden = NO;
@@ -214,7 +179,7 @@
                     
                     [self.cachedFeedImages setValue:downloadedImage forKey:identifier];
                     
-                    if ([[NSString stringWithFormat:@"Celltd__%ld", ind]isEqualToString:identifier]){
+                    if ([[NSString stringWithFormat:@"Celltde__%ld", ind]isEqualToString:identifier]){
                         imgName.image = [self.cachedFeedImages valueForKey:identifier] ;
                         [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
                     }

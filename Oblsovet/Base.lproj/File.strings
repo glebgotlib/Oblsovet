@@ -7,3 +7,6 @@
 */
 
 News = "News";
+Head = "Chairman of the Standing Committee";
+Zam = "Deputy Chairman of the Commission";
+Secretar = "Secretary of the Commission";

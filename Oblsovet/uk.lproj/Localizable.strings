@@ -1,0 +1,20 @@
+/* 
+  Localizable.strings
+  Oblsovet
+
+  Created by Gotlib on 22.09.16.
+  Copyright © 2016 Yog.group. All rights reserved.
+*/
+News = "Новини";
+Head = "Голова постійної комісії";
+Zam = "Заступник голови комісії";
+Secretar = "Секретар комісії ";
+Komision = "Комиссии";
+Session = "Сессии";
+Calendar = "Календарь";
+Presidium = "Президиум";
+Sovet = "Согласителный совет";
+Mess = "Сообщения";
+Deputat = "Депутаты";
+Spravki = "Справочник";
+Login = "Log In";
