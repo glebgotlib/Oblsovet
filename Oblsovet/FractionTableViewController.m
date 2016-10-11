@@ -21,7 +21,7 @@
     [super viewDidLoad];
     [_mTable delegate];
     [_mTable dataSource];
-    self.navigationItem.title = NSLocalizedString(@"Presidium", nil);
+    self.navigationItem.title = NSLocalizedString(@"Fraktion", nil);
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -148,6 +148,7 @@
         CommissionDetailsViewController*controller = [storyBoard instantiateViewControllerWithIdentifier:@"CommissionDetailsViewController"];
         controller.selectedId = [[_items objectAtIndex:indexPath.row] objectForKey:@"id"];
         controller.object = _objectR;
+        controller.selectorName = [[_items objectAtIndex:indexPath.row] objectForKey:@"caption"];
         [self.navigationController pushViewController:controller animated:YES];
     }
 }

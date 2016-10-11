@@ -16,6 +16,6 @@
 }
 @property (nonatomic, strong) NSString *selectedId;
 @property (nonatomic, strong) NSString *object;
-
+@property (nonatomic, strong) NSString *selectorName;
 - (IBAction)switchTap:(id)sender;
 @end

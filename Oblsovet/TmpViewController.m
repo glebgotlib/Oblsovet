@@ -8,6 +8,7 @@
 
 #import "TmpViewController.h"
 #import "ScaduleOfCommissionTableViewCell.h"
+#import "DocListTableViewController.h"
 @interface TmpViewController ()
 @property (strong ,nonatomic) NSMutableDictionary *cachedFeedImages;
 @property (nonatomic, strong) NSMutableArray *items;
@@ -29,6 +30,13 @@
     // Do any additional setup after loading the view.
 }
 #pragma mark - Table view data source
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+        UIStoryboard *storyBoard = [self storyboard];
+        DocListTableViewController*controller = [storyBoard instantiateViewControllerWithIdentifier:@"DocListTableViewController"];
+        controller.id_str = [[_items objectAtIndex:indexPath.row] objectForKey:@"id"];
+        controller.object = _object;
+        [self.navigationController pushViewController:controller animated:YES];
+}
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;

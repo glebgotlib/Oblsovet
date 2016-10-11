@@ -1,22 +1,38 @@
 //
-//  CalendarTableViewController.m
+//  MessagesTableViewController.m
 //  Oblsovet
 //
-//  Created by Gotlib on 29.09.16.
+//  Created by Gotlib on 04.10.16.
 //  Copyright © 2016 Yog.group. All rights reserved.
 //
 
-#import "CalendarTableViewController.h"
-#import "CalendarTableViewCell.h"
-#import "DocListTableViewController.h"
-@interface CalendarTableViewController ()
-@property (nonatomic, strong) NSMutableArray *items;
+#import "MessagesTableViewController.h"
+#import "MessagesTableViewCell.h"
+#import "MessDetailsViewController.h"
+
+#define UIColorFromRGB(rgbValue) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
+@interface MessagesTableViewController ()
+
 @end
 
-@implementation CalendarTableViewController
+@implementation MessagesTableViewController
 {
-    NSMutableArray *jsonResultsArray;
-    int selector;
+    NSDateFormatter *dateFormatter;
+}
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    
+}
+
+//-(void)viewDidAppear:(BOOL)animated{
+//    [super viewDidAppear:NO];
+//    [self feedLine];
+//}
+
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:NO];
+    [self feedLine];
+    NSLog(@"viewWillAppear");
 }
 
 - (BOOL)slideNavigationControllerShouldDisplayLeftMenu
@@ -24,20 +40,65 @@
     return YES;
 }
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    self.navigationItem.title = NSLocalizedString(@"Calendar", nil);
-    [self feedLine];
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-}
-
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - Table view data source
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    NSLog(@"jsonResultsArray.count === %lu",(unsigned long)jsonResultsArray.count);
+    return jsonResultsArray.count;
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return 144;
+}
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    MessagesTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MessagesTableViewCell" forIndexPath:indexPath];
+    if (cell == nil) {
+        cell = [[MessagesTableViewCell alloc]  initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"MessagesTableViewCell"];
+    }
+
+    if(![[[jsonResultsArray objectAtIndex:indexPath.row] objectForKey:@"read"] boolValue] ) {
+        [cell setBackgroundColor:UIColorFromRGB(0xCCCCCC)];
+    }
+    else{
+        [cell setBackgroundColor:[UIColor whiteColor]];
+    }
+    
+    dateFormatter = [[NSDateFormatter alloc]init];
+    [dateFormatter setTimeZone:[NSTimeZone localTimeZone]];
+    [dateFormatter setDateFormat:@"dd.MM.yyyy"];
+
+    cell.title_lab.text = [[jsonResultsArray objectAtIndex:indexPath.row] objectForKey:@"caption"];
+    cell.date_lab.text = [dateFormatter stringFromDate:[NSDate dateWithTimeIntervalSince1970:(NSTimeInterval)[[[jsonResultsArray objectAtIndex:indexPath.row] objectForKey:@"date"]intValue]]];
+    cell.resiver.text = [[jsonResultsArray objectAtIndex:indexPath.row] objectForKey:@"reciever"];
+    cell.for_whom.text = [[jsonResultsArray objectAtIndex:indexPath.row] objectForKey:@"level"];
+
+    
+    // Configure the cell...
+    
+    return cell;
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    UIStoryboard *storyBoard = [self storyboard];
+    MessDetailsViewController*controller =  [storyBoard instantiateViewControllerWithIdentifier:@"MessDetailsViewController"];
+    controller.title_str = [[jsonResultsArray objectAtIndex:indexPath.row] objectForKey:@"caption"];
+    controller.date_str = [[jsonResultsArray objectAtIndex:indexPath.row] objectForKey:@"date"];
+    controller.web_str = [[jsonResultsArray objectAtIndex:indexPath.row] objectForKey:@"text"];
+    controller.ansver = [[[jsonResultsArray objectAtIndex:indexPath.row] objectForKey:@"quest"] intValue];
+    controller.reciever_str = [[jsonResultsArray objectAtIndex:indexPath.row] objectForKey:@"reciever"];
+    controller.level_str = [[jsonResultsArray objectAtIndex:indexPath.row] objectForKey:@"level"];
+    controller.quest_str = [[jsonResultsArray objectAtIndex:indexPath.row] objectForKey:@"id"];
+    controller.wasansvwred = [[[jsonResultsArray objectAtIndex:indexPath.row] objectForKey:@"ans"] intValue];
+    [self.navigationController pushViewController:controller animated:YES];
 }
 
 #pragma mark -
@@ -49,7 +110,7 @@
     [jsonResultsArray removeAllObjects];
     
     //    reload input views
-    NSURL* feedUrl = [NSURL URLWithString:[NSString stringWithFormat:@"http://oblsovet.y.od.ua/json/?object=deputat&action=calendar"]];
+    NSURL* feedUrl = [NSURL URLWithString:[NSString stringWithFormat:@"http://oblsovet.y.od.ua/json/?object=deputat&action=messages&cookievar=%@",[[NSUserDefaults standardUserDefaults] stringForKey:@"preferenceName"]]];
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:feedUrl];
     NSLog(@"headUrl: %@", feedUrl);
     [request addValue:@"multipart/form-data" forHTTPHeaderField:@"Content-Type"];
@@ -66,6 +127,7 @@
                                           
                                           NSError *JSONError = nil;
                                           jsonResultsArray = [NSJSONSerialization JSONObjectWithData: data options: NSJSONReadingMutableContainers error: &JSONError];
+//                                          json = [NSJSONSerialization JSONObjectWithData:data options:0 error:&JSONError];
                                           
                                           if (JSONError) {
                                               UIAlertView* errorAlert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Sorry", nil) message:NSLocalizedString(@"Bad connection", nil)  delegate: self cancelButtonTitle:@"ok" otherButtonTitles:nil];
@@ -74,11 +136,8 @@
                                           }
                                           else{
                                               dispatch_async(dispatch_get_main_queue(),^{
-                                                  [_items removeAllObjects];
-                                                  _items = jsonResultsArray;
-                                                  NSLog(@"--------- %@",_items);
+                                                  NSLog(@"YES %@",jsonResultsArray);
                                                   [self.tableView reloadData];
-                                                  
                                               });
                                           }
                                       }
@@ -94,40 +153,6 @@
                                   }];
     // Start the task.
     [task resume];
-}
-
-#pragma mark - Table view data source
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 1;
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return _items.count;
-}
--(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 100;
-}
-
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    CalendarTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CalendarTableViewCell" forIndexPath:indexPath];
-    if (cell == nil) {
-        cell = [[CalendarTableViewCell alloc]  initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"CalendarTableViewCell"];
-    }
-    cell.date_lab.text = [[_items objectAtIndex:indexPath.row] objectForKey:@"date"];
-    cell.title_lab.text = [[_items objectAtIndex:indexPath.row] objectForKey:@"caption"];
-    cell.title_lab.numberOfLines = 5;
-    
-    return cell;
-}
-//linkid
--(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    UIStoryboard *storyBoard = [self storyboard];
-    DocListTableViewController*controller = [storyBoard instantiateViewControllerWithIdentifier:@"DocListTableViewController"];
-    controller.id_str = [[_items objectAtIndex:indexPath.row] objectForKey:@"id"];
-    controller.object = [[_items objectAtIndex:indexPath.row] objectForKey:@"linkid"];
-    [self.navigationController pushViewController:controller animated:YES];
 }
 
 /*

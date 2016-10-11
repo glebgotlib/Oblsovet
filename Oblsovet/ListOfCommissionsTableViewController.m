@@ -124,6 +124,9 @@
     return _items.count;
 }
 
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return 100;
+}
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *CellIdentifier = @"ListOfCommissionsTableViewCell";
@@ -132,7 +135,9 @@
         cell = [[ListOfCommissionsTableViewCell alloc]  initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
     cell.textLabel.text = [[_items objectAtIndex:indexPath.row] objectForKey:@"caption"];
-    
+    if ([[[_items objectAtIndex:indexPath.row] objectForKey:@"caption"] length]>50) {
+        cell.textLabel.numberOfLines = 5;
+    }
     return cell;
 }
 
@@ -143,12 +148,14 @@
         TmpViewController*controller = [storyBoard instantiateViewControllerWithIdentifier:@"TmpViewController"];
         controller.selectedId = [[_items objectAtIndex:indexPath.row] objectForKey:@"id"];
         controller.object = _objectR;
+//        controller.selectorName = [[_items objectAtIndex:indexPath.row] objectForKey:@"caption"];
         [self.navigationController pushViewController:controller animated:YES];
     }
     else{
         CommissionDetailsViewController*controller = [storyBoard instantiateViewControllerWithIdentifier:@"CommissionDetailsViewController"];
         controller.selectedId = [[_items objectAtIndex:indexPath.row] objectForKey:@"id"];
         controller.object = _objectR;
+        controller.selectorName = [[_items objectAtIndex:indexPath.row] objectForKey:@"caption"];
         [self.navigationController pushViewController:controller animated:YES];
     }
 }

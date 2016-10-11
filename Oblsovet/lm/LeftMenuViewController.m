@@ -20,6 +20,7 @@
 #import "CalendarTableViewController.h"
 #import "FractionTableViewController.h"
 #import "DepGrupsTableViewController.h"
+#import "MessagesTableViewController.h"
 
 @implementation LeftMenuViewController
 
@@ -209,6 +210,16 @@
             DepGrupsTableViewController*cont = [mainStoryboard instantiateViewControllerWithIdentifier: @"DepGrupsTableViewController"];
             [cont refresh:@"depgroup"];
             cont.objectR = @"depgroup";
+            [[SlideNavigationController sharedInstance] popToRootAndSwitchToViewController:cont
+                                                                     withSlideOutAnimation:self.slideOutAnimationEnabled
+                                                                             andCompletion:nil];
+        }
+            break;
+            
+        case 8:
+        {
+            MessagesTableViewController*cont = [mainStoryboard instantiateViewControllerWithIdentifier: @"MessagesTableViewController"];
+
             [[SlideNavigationController sharedInstance] popToRootAndSwitchToViewController:cont
                                                                      withSlideOutAnimation:self.slideOutAnimationEnabled
                                                                              andCompletion:nil];

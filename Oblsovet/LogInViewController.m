@@ -85,7 +85,7 @@
                                           NSError *JSONError = nil;
                                           [jsonResultsArray removeAllObjects];
                                           json = [NSJSONSerialization JSONObjectWithData:data options:0 error:&JSONError];
-                                          jsonResultsArray = [NSJSONSerialization JSONObjectWithData: data options: NSJSONReadingMutableContainers error: &JSONError];
+                                          //jsonResultsArray = [NSJSONSerialization JSONObjectWithData: data options: NSJSONReadingMutableContainers error: &JSONError];
                                           //NSLog(@"feedLine  - - - %@",json);
                                           if (JSONError) {
                                               UIAlertView* errorAlert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Sorry", nil) message:NSLocalizedString(@"Bad connection", nil)  delegate: self cancelButtonTitle:@"ok" otherButtonTitles:nil];
@@ -94,8 +94,9 @@
                                           }
                                           else{
                                               dispatch_async(dispatch_get_main_queue(),^{
-                                                  NSLog(@"YES %@",jsonResultsArray);
-                                                   [[NSUserDefaults standardUserDefaults] setObject:[[jsonResultsArray objectAtIndex:0] objectForKey:@"cookievar"] forKey:@"preferenceName"];
+                                                  NSLog(@"YES %@",json);
+                                                   [[NSUserDefaults standardUserDefaults] setObject:[[json objectForKey:@"info"] objectForKey:@"cookievar"] forKey:@"preferenceName"];
+                                                  NSLog(@"cookievar ========    %@",[[json objectForKey:@"info"] objectForKey:@"cookievar"]);
                                                   UIStoryboard *storyBoard = [self storyboard];
                                                   MainTableViewController *controller = [storyBoard instantiateViewControllerWithIdentifier:@"MainTableViewController"];
                                                   [self.navigationController pushViewController:controller animated:YES];

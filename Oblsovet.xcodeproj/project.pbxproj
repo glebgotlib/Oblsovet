@@ -34,6 +34,9 @@
 		8C7A8F301D9345DA00CA3D4F /* DeputatTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C7A8F2F1D9345DA00CA3D4F /* DeputatTableViewCell.m */; };
 		8C7A8F331D93CB4B00CA3D4F /* ScaduleOfCommissionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C7A8F321D93CB4B00CA3D4F /* ScaduleOfCommissionTableViewCell.m */; };
 		8C7A8F361D941F0E00CA3D4F /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8C7A8F381D941F0E00CA3D4F /* Localizable.strings */; };
+		8C82CC481DA3F8F000217116 /* MessagesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C82CC471DA3F8F000217116 /* MessagesTableViewController.m */; };
+		8C82CC4B1DA3FB2600217116 /* MessagesTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C82CC4A1DA3FB2600217116 /* MessagesTableViewCell.m */; };
+		8C82CC4E1DA5289F00217116 /* MessDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C82CC4D1DA5289F00217116 /* MessDetailsViewController.m */; };
 		8C8920851D90590C001528FA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C8920841D90590C001528FA /* main.m */; };
 		8C8920881D90590C001528FA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C8920871D90590C001528FA /* AppDelegate.m */; };
 		8C89208E1D90590C001528FA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C89208C1D90590C001528FA /* Main.storyboard */; };
@@ -51,6 +54,11 @@
 		8C8E48881D9C721A00EC6EEB /* CalendarTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C8E48871D9C721A00EC6EEB /* CalendarTableViewCell.m */; };
 		8C8E488B1D9C764600EC6EEB /* FractionTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C8E488A1D9C764600EC6EEB /* FractionTableViewController.m */; };
 		8C8E488E1D9C767300EC6EEB /* DepGrupsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C8E488D1D9C767300EC6EEB /* DepGrupsTableViewController.m */; };
+		8CFDC9301DA3B382009F9D23 /* DocListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CFDC92F1DA3B381009F9D23 /* DocListTableViewController.m */; };
+		8CFDC9331DA3B397009F9D23 /* DocsInsideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CFDC9321DA3B397009F9D23 /* DocsInsideViewController.m */; };
+		8CFDC9361DA3BC3E009F9D23 /* DocListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CFDC9351DA3BC3E009F9D23 /* DocListTableViewCell.m */; };
+		8CFDC93C1DA3C148009F9D23 /* QuickLook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8CFDC93B1DA3C148009F9D23 /* QuickLook.framework */; };
+		8CFDC93E1DA3DB10009F9D23 /* sessdocsfile_dok-22_30358.docx in Resources */ = {isa = PBXBuildFile; fileRef = 8CFDC93D1DA3DB10009F9D23 /* sessdocsfile_dok-22_30358.docx */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -103,6 +111,12 @@
 		8C7A8F371D941F0E00CA3D4F /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		8C7A8F391D941F1000CA3D4F /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		8C7A8F3A1D941F1200CA3D4F /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/Localizable.strings; sourceTree = "<group>"; };
+		8C82CC461DA3F8F000217116 /* MessagesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessagesTableViewController.h; sourceTree = "<group>"; };
+		8C82CC471DA3F8F000217116 /* MessagesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessagesTableViewController.m; sourceTree = "<group>"; };
+		8C82CC491DA3FB2500217116 /* MessagesTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessagesTableViewCell.h; sourceTree = "<group>"; };
+		8C82CC4A1DA3FB2600217116 /* MessagesTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessagesTableViewCell.m; sourceTree = "<group>"; };
+		8C82CC4C1DA5289F00217116 /* MessDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessDetailsViewController.h; sourceTree = "<group>"; };
+		8C82CC4D1DA5289F00217116 /* MessDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessDetailsViewController.m; sourceTree = "<group>"; };
 		8C8920801D90590C001528FA /* Oblsovet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Oblsovet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C8920841D90590C001528FA /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		8C8920861D90590C001528FA /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -136,6 +150,14 @@
 		8C8E488A1D9C764600EC6EEB /* FractionTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FractionTableViewController.m; sourceTree = "<group>"; };
 		8C8E488C1D9C767300EC6EEB /* DepGrupsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DepGrupsTableViewController.h; sourceTree = "<group>"; };
 		8C8E488D1D9C767300EC6EEB /* DepGrupsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DepGrupsTableViewController.m; sourceTree = "<group>"; };
+		8CFDC92E1DA3B381009F9D23 /* DocListTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DocListTableViewController.h; sourceTree = "<group>"; };
+		8CFDC92F1DA3B381009F9D23 /* DocListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DocListTableViewController.m; sourceTree = "<group>"; };
+		8CFDC9311DA3B397009F9D23 /* DocsInsideViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DocsInsideViewController.h; sourceTree = "<group>"; };
+		8CFDC9321DA3B397009F9D23 /* DocsInsideViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DocsInsideViewController.m; sourceTree = "<group>"; };
+		8CFDC9341DA3BC3E009F9D23 /* DocListTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DocListTableViewCell.h; sourceTree = "<group>"; };
+		8CFDC9351DA3BC3E009F9D23 /* DocListTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DocListTableViewCell.m; sourceTree = "<group>"; };
+		8CFDC93B1DA3C148009F9D23 /* QuickLook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuickLook.framework; path = System/Library/Frameworks/QuickLook.framework; sourceTree = SDKROOT; };
+		8CFDC93D1DA3DB10009F9D23 /* sessdocsfile_dok-22_30358.docx */ = {isa = PBXFileReference; lastKnownFileType = file; name = "sessdocsfile_dok-22_30358.docx"; path = "Oblsovet/sessdocsfile_dok-22_30358.docx"; sourceTree = "<group>"; };
 		FA9DF986E00EA4CCE0D701CE /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -144,6 +166,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8CFDC93C1DA3C148009F9D23 /* QuickLook.framework in Frameworks */,
 				8C0EFE071D92DA7400CC9578 /* libc++.tbd in Frameworks */,
 				8C0EFE051D92DA6C00CC9578 /* libc++abi.tbd in Frameworks */,
 				8AEC76B808007D2770FEBEE1 /* libPods.a in Frameworks */,
@@ -169,6 +192,7 @@
 		8C0DF94C1D92934300036295 /* LSMenu */ = {
 			isa = PBXGroup;
 			children = (
+				8CFDC93D1DA3DB10009F9D23 /* sessdocsfile_dok-22_30358.docx */,
 				8C0EFE0B1D92E77100CC9578 /* Animations */,
 				8C0EFE171D92E77100CC9578 /* Assets */,
 				8C0EFE1A1D92E77100CC9578 /* SlideNavigationController.h */,
@@ -268,6 +292,19 @@
 			name = "List of commissions";
 			sourceTree = "<group>";
 		};
+		8C82CC451DA3F8C300217116 /* Message */ = {
+			isa = PBXGroup;
+			children = (
+				8C82CC461DA3F8F000217116 /* MessagesTableViewController.h */,
+				8C82CC471DA3F8F000217116 /* MessagesTableViewController.m */,
+				8C82CC491DA3FB2500217116 /* MessagesTableViewCell.h */,
+				8C82CC4A1DA3FB2600217116 /* MessagesTableViewCell.m */,
+				8C82CC4C1DA5289F00217116 /* MessDetailsViewController.h */,
+				8C82CC4D1DA5289F00217116 /* MessDetailsViewController.m */,
+			);
+			name = Message;
+			sourceTree = "<group>";
+		};
 		8C8920771D90590C001528FA = {
 			isa = PBXGroup;
 			children = (
@@ -290,6 +327,8 @@
 		8C8920821D90590C001528FA /* Oblsovet */ = {
 			isa = PBXGroup;
 			children = (
+				8C82CC451DA3F8C300217116 /* Message */,
+				8CFDC92D1DA3B363009F9D23 /* Docs */,
 				8C8E48821D9C6A4D00EC6EEB /* Calendar */,
 				8C8E48661D9C222D00EC6EEB /* Deputats */,
 				8C7A8F231D933D5E00CA3D4F /* List of commissions */,
@@ -349,6 +388,19 @@
 			name = Calendar;
 			sourceTree = "<group>";
 		};
+		8CFDC92D1DA3B363009F9D23 /* Docs */ = {
+			isa = PBXGroup;
+			children = (
+				8CFDC92E1DA3B381009F9D23 /* DocListTableViewController.h */,
+				8CFDC92F1DA3B381009F9D23 /* DocListTableViewController.m */,
+				8CFDC9311DA3B397009F9D23 /* DocsInsideViewController.h */,
+				8CFDC9321DA3B397009F9D23 /* DocsInsideViewController.m */,
+				8CFDC9341DA3BC3E009F9D23 /* DocListTableViewCell.h */,
+				8CFDC9351DA3BC3E009F9D23 /* DocListTableViewCell.m */,
+			);
+			name = Docs;
+			sourceTree = "<group>";
+		};
 		A0569EF61A6E683622D45E9F /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -361,6 +413,7 @@
 		CBF78694135BFC8F061A0F99 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				8CFDC93B1DA3C148009F9D23 /* QuickLook.framework */,
 				8C0EFE061D92DA7400CC9578 /* libc++.tbd */,
 				8C0EFE041D92DA6C00CC9578 /* libc++abi.tbd */,
 				FA9DF986E00EA4CCE0D701CE /* libPods.a */,
@@ -402,6 +455,7 @@
 				TargetAttributes = {
 					8C89207F1D90590C001528FA = {
 						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = 7HUQ49W2RT;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -433,6 +487,7 @@
 			files = (
 				8C0DF9441D9161E700036295 /* login.png in Resources */,
 				8C0DF9461D91641300036295 /* beautiful_stars_in_galaxy.jpg in Resources */,
+				8CFDC93E1DA3DB10009F9D23 /* sessdocsfile_dok-22_30358.docx in Resources */,
 				8C0EFE2B1D92E7AD00CC9578 /* rightMenu.jpg in Resources */,
 				8C0EFE2A1D92E7AD00CC9578 /* leftMenu.jpg in Resources */,
 				8C8920931D90590C001528FA /* LaunchScreen.storyboard in Resources */,
@@ -507,6 +562,9 @@
 				8C8E487E1D9C594D00EC6EEB /* DeputatsListTableViewCell.m in Sources */,
 				8C8E48881D9C721A00EC6EEB /* CalendarTableViewCell.m in Sources */,
 				8C0EFE201D92E77100CC9578 /* SlideNavigationContorllerAnimatorSlideAndFade.m in Sources */,
+				8CFDC9361DA3BC3E009F9D23 /* DocListTableViewCell.m in Sources */,
+				8C82CC481DA3F8F000217116 /* MessagesTableViewController.m in Sources */,
+				8CFDC9301DA3B382009F9D23 /* DocListTableViewController.m in Sources */,
 				8C0EFE1C1D92E77100CC9578 /* SlideNavigationContorllerAnimatorFade.m in Sources */,
 				8C8E48621D9C120C00EC6EEB /* SovetTableViewController.m in Sources */,
 				8C8E488E1D9C767300EC6EEB /* DepGrupsTableViewController.m in Sources */,
@@ -519,6 +577,7 @@
 				8C0EFE1E1D92E77100CC9578 /* SlideNavigationContorllerAnimatorScaleAndFade.m in Sources */,
 				8C8E485F1D9C11FF00EC6EEB /* SessionsTableViewController.m in Sources */,
 				8C0EFE1F1D92E77100CC9578 /* SlideNavigationContorllerAnimatorSlide.m in Sources */,
+				8CFDC9331DA3B397009F9D23 /* DocsInsideViewController.m in Sources */,
 				8C0EFE231D92E77100CC9578 /* SlideNavigationController.m in Sources */,
 				8C7A8F261D933DCE00CA3D4F /* ListOfCommissionsTableViewController.m in Sources */,
 				8C8E487B1D9C58E900EC6EEB /* DeputatsDetailsInfoViewController.m in Sources */,
@@ -526,6 +585,8 @@
 				8C8920851D90590C001528FA /* main.m in Sources */,
 				8C0EFE0A1D92E72300CC9578 /* LeftMenuViewController.m in Sources */,
 				8C8E48851D9C71DC00EC6EEB /* CalendarTableViewController.m in Sources */,
+				8C82CC4B1DA3FB2600217116 /* MessagesTableViewCell.m in Sources */,
+				8C82CC4E1DA5289F00217116 /* MessDetailsViewController.m in Sources */,
 				8C8E48651D9C1D8900EC6EEB /* PresidiumTableViewController.m in Sources */,
 				8C0DF92F1D9076D500036295 /* NewsDetailsViewController.m in Sources */,
 				8C8920A31D906616001528FA /* MainTableViewCell.m in Sources */,
@@ -666,7 +727,9 @@
 			baseConfigurationReference = 0D641B70DA907E129D0E7F00 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 7HUQ49W2RT;
 				INFOPLIST_FILE = Oblsovet/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.yog.group.Oblsovet;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -678,7 +741,9 @@
 			baseConfigurationReference = 296EC6BE9FC2D897AC9DE029 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 7HUQ49W2RT;
 				INFOPLIST_FILE = Oblsovet/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.yog.group.Oblsovet;
 				PRODUCT_NAME = "$(TARGET_NAME)";

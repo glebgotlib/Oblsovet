@@ -9,6 +9,7 @@
 #import "CommissionDetailsViewController.h"
 #import "DeputatTableViewCell.h"
 #import "ScaduleOfCommissionTableViewCell.h"
+#import "DocListTableViewController.h"
 @interface CommissionDetailsViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (strong ,nonatomic) NSMutableDictionary *cachedFeedImages;
 @property (nonatomic, strong) NSMutableArray *items;
@@ -26,9 +27,26 @@
      self.cachedFeedImages = [[NSMutableDictionary alloc] init];
     [mTable delegate];
     [mTable dataSource];
+    self.navigationItem.title = _selectorName;
     NSLog(@"ID== %@",_selectedId);
-    selector = 0;
-    [self feedLine];
+    if ([_object isEqualToString:@"presidium"] || [_object isEqualToString:@"sovet"] || [_object isEqualToString:@"comission"]) {
+        selector = 1;
+        [self eventsFuture];
+    }
+    else{
+        selector = 0;
+        [self feedLine];
+    }
+    swither.selectedSegmentIndex = selector;
+    if([_object isEqualToString:@"depgroup"])
+    {
+        UILabel*labq = [[UILabel alloc] initWithFrame:CGRectMake(0, 64, self.view.frame.size.width, 20)];
+        labq.text = self.selectorName;
+        labq.textAlignment = NSTextAlignmentCenter;
+        [self.view addSubview:labq];
+        [swither setHidden:YES];
+    }
+    
     // Do any additional setup after loading the view.
 }
 #pragma mark -
@@ -72,21 +90,50 @@
                                                   [_items removeAllObjects];
                                                   if([_object isEqualToString:@"comission"])
                                                   {
+                                                      _items = [[NSMutableArray alloc] init];
+                                                      if ([[json objectForKey:@"golova"] isKindOfClass:[NSDictionary class]]) {
                                                       NSDictionary* dict = [json objectForKey:@"golova"];
-                                                       NSDictionary* dict1 = [json objectForKey:@"zam"];
-                                                       NSDictionary* dict2 = [json objectForKey:@"secretar"];
-                                                      _items = [[NSMutableArray alloc] initWithObjects:dict,dict1,dict2, nil];
-                                                  
+                                                          [_items addObject:dict];
+                                                      }
+                                                      if ([[json objectForKey:@"zam"] isKindOfClass:[NSDictionary class]]) {
+                                                          NSDictionary* dict = [json objectForKey:@"zam"];
+                                                          [_items addObject:dict];
+                                                      }
+                                                      if ([[json objectForKey:@"secretar"] isKindOfClass:[NSDictionary class]]) {
+                                                          NSDictionary* dict = [json objectForKey:@"secretar"];
+                                                          [_items addObject:dict];
+                                                      }
+                                                    
                                                       NSMutableArray*arr = [json objectForKey:@"list"];
                                                       for (int i = 0; i<arr.count; i++) {
                                                           [_items addObject:[arr objectAtIndex:i]];
                                                       }
                                                   }
-                                                  if([_object isEqualToString:@"fraction"])
+                                                  else if([_object isEqualToString:@"fraction"])
                                                   {
-                                                      NSDictionary* dict = [json objectForKey:@"lider"];
-                                                      _items = [[NSMutableArray alloc] initWithObjects:dict, nil];
-                                                      
+                                                      if ([[json objectForKey:@"lider"] isKindOfClass:[NSDictionary class]]) {
+                                                          NSDictionary* dict = [json objectForKey:@"lider"];
+                                                          _items = [[NSMutableArray alloc] initWithObjects:dict, nil];
+                                                      }
+                                                      else
+                                                      {
+                                                          _items = [[NSMutableArray alloc] init];
+                                                      }
+                                                      NSMutableArray*arr = [json objectForKey:@"list"];
+                                                      for (int i = 0; i<arr.count; i++) {
+                                                          [_items addObject:[arr objectAtIndex:i]];
+                                                      }
+                                                  }
+                                                  else if([_object isEqualToString:@"depgroup"])
+                                                  {
+                                                      if ([[json objectForKey:@"predsedatel"] isKindOfClass:[NSDictionary class]]) {
+                                                          NSDictionary* dict = [json objectForKey:@"predsedatel"];
+                                                          _items = [[NSMutableArray alloc] initWithObjects:dict, nil];
+                                                      }
+                                                      else
+                                                      {
+                                                          _items = [[NSMutableArray alloc] init];
+                                                      }
                                                       NSMutableArray*arr = [json objectForKey:@"list"];
                                                       for (int i = 0; i<arr.count; i++) {
                                                           [_items addObject:[arr objectAtIndex:i]];
@@ -128,7 +175,11 @@
     return _items.count;
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 100;
+    if (selector    ==  0) {
+        return 100;
+    }
+    else
+        return 44;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -151,7 +202,7 @@
                 cell.status_lab.text =  NSLocalizedString(@"Secretar", nil);
             }
         }
-        if([_object isEqualToString:@"fraction"])
+        else if([_object isEqualToString:@"fraction"])
         {
             [cell.status_lab setHidden:NO];
             if (indexPath.row == 0) {
@@ -181,7 +232,7 @@
             cell1 = [[ScaduleOfCommissionTableViewCell alloc]  initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
         }
         cell1.date_lab.text = [[_items objectAtIndex:indexPath.row] objectForKey:@"date"];
-        cell1.caption_lab.text = [[_items objectAtIndex:indexPath.row] objectForKey:@"caption"];
+        //cell1.caption_lab.text = [[_items objectAtIndex:indexPath.row] objectForKey:@"caption"];
         
         return cell1;
     }
@@ -192,11 +243,21 @@
             cell2 = [[ScaduleOfCommissionTableViewCell alloc]  initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
         }
         cell2.date_lab.text = [[_items objectAtIndex:indexPath.row] objectForKey:@"date"];
-        cell2.caption_lab.text = [[_items objectAtIndex:indexPath.row] objectForKey:@"caption"];
+        //cell2.caption_lab.text = [[_items objectAtIndex:indexPath.row] objectForKey:@"caption"];
         
         return cell2;
     }
 
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    if (selector    !=      0 && ![_object isEqualToString:@"fraction"]) {
+        UIStoryboard *storyBoard = [self storyboard];
+        DocListTableViewController*controller = [storyBoard instantiateViewControllerWithIdentifier:@"DocListTableViewController"];
+        controller.id_str = [[_items objectAtIndex:indexPath.row] objectForKey:@"id"];
+        controller.object = _object;
+        [self.navigationController pushViewController:controller animated:YES];
+    }
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

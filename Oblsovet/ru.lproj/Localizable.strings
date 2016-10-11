@@ -16,5 +16,7 @@ Presidium = "Президиум";
 Sovet = "Согласителный совет";
 Mess = "Сообщения";
 Deputat = "Депутаты";
+DepGrups = "Депутатские группы";
 Spravki = "Справочник";
 Login = "Log In";
+Fraktion = "Фракции";

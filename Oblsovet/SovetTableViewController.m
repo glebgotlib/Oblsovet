@@ -147,6 +147,7 @@
         CommissionDetailsViewController*controller = [storyBoard instantiateViewControllerWithIdentifier:@"CommissionDetailsViewController"];
         controller.selectedId = [[_items objectAtIndex:indexPath.row] objectForKey:@"id"];
         controller.object = _objectR;
+        controller.selectorName = [[_items objectAtIndex:indexPath.row] objectForKey:@"caption"];
         [self.navigationController pushViewController:controller animated:YES];
     }
 }

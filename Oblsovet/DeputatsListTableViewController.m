@@ -145,6 +145,7 @@
     controller.education_str = [[_items objectAtIndex:indexPath.row] objectForKey:@"education"];
     controller.takepart_str = [[_items objectAtIndex:indexPath.row] objectForKey:@"part"];
     controller.photo_str = [[_items objectAtIndex:indexPath.row] objectForKey:@"photo"];
+    controller.id_str = [[_items objectAtIndex:indexPath.row] objectForKey:@"id"];
     [self.navigationController pushViewController:controller animated:YES];
 }
 
