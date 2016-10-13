@@ -218,11 +218,18 @@
             
         case 8:
         {
-            MessagesTableViewController*cont = [mainStoryboard instantiateViewControllerWithIdentifier: @"MessagesTableViewController"];
-
-            [[SlideNavigationController sharedInstance] popToRootAndSwitchToViewController:cont
-                                                                     withSlideOutAnimation:self.slideOutAnimationEnabled
-                                                                             andCompletion:nil];
+            if ([[NSUserDefaults standardUserDefaults] stringForKey:@"preferenceName"]==nil) {
+                vc = [mainStoryboard instantiateViewControllerWithIdentifier: @"LogInViewController"];
+                [[SlideNavigationController sharedInstance] popToRootAndSwitchToViewController:vc
+                                                                         withSlideOutAnimation:self.slideOutAnimationEnabled
+                                                                                 andCompletion:nil];
+            }
+            else{
+                MessagesTableViewController*cont = [mainStoryboard instantiateViewControllerWithIdentifier: @"MessagesTableViewController"];
+                [[SlideNavigationController sharedInstance] popToRootAndSwitchToViewController:cont
+                                                                         withSlideOutAnimation:self.slideOutAnimationEnabled
+                                                                                 andCompletion:nil];
+            }
         }
             break;
             

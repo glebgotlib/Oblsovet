@@ -10,6 +10,7 @@
 #import "DeputatTableViewCell.h"
 #import "ScaduleOfCommissionTableViewCell.h"
 #import "DocListTableViewController.h"
+#import "DocListCommisionViewController.h"
 @interface CommissionDetailsViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (strong ,nonatomic) NSMutableDictionary *cachedFeedImages;
 @property (nonatomic, strong) NSMutableArray *items;
@@ -251,9 +252,16 @@
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    if (selector    !=      0 && ![_object isEqualToString:@"fraction"]) {
+    if (selector    !=      0 && ![_object isEqualToString:@"fraction"] && ![_object isEqualToString:@"comission"] && ![_object isEqualToString:@"presidium"] && ![_object isEqualToString:@"sovet"]) {
         UIStoryboard *storyBoard = [self storyboard];
         DocListTableViewController*controller = [storyBoard instantiateViewControllerWithIdentifier:@"DocListTableViewController"];
+        controller.id_str = [[_items objectAtIndex:indexPath.row] objectForKey:@"id"];
+        controller.object = _object;
+        [self.navigationController pushViewController:controller animated:YES];
+    }
+    if (selector    !=      0 && ([_object isEqualToString:@"comission"] || [_object isEqualToString:@"presidium"] || [_object isEqualToString:@"sovet"])) {
+        UIStoryboard *storyBoard = [self storyboard];
+        DocListCommisionViewController*controller = [storyBoard instantiateViewControllerWithIdentifier:@"DocListCommisionViewController"];
         controller.id_str = [[_items objectAtIndex:indexPath.row] objectForKey:@"id"];
         controller.object = _object;
         [self.navigationController pushViewController:controller animated:YES];

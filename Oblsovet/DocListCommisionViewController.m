@@ -1,22 +1,33 @@
 //
-//  DocListTableViewController.m
+//  DocListCommisionViewController.m
 //  Oblsovet
 //
-//  Created by Gotlib on 04.10.16.
+//  Created by Gotlib on 12.10.16.
 //  Copyright © 2016 Yog.group. All rights reserved.
 //
 
-#import "DocListTableViewController.h"
+#import "DocListCommisionViewController.h"
+#import "DocListCommisionTableViewCell.h"
 #import "DocsInsideViewController.h"
-#import "DocListTableViewCell.h"
-@interface DocListTableViewController ()
+@interface DocListCommisionViewController ()
 
 @end
 
-@implementation DocListTableViewController
+@implementation DocListCommisionViewController
 
+{
+    NSMutableArray*info;
+    NSMutableArray*docs;
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [mTable delegate];
+    [mTable dataSource];
+    docs = [[NSMutableArray alloc] init];
+    info = [[NSMutableArray alloc] init];
+    [web_view setOpaque:NO];
+    self.automaticallyAdjustsScrollViewInsets = NO;
+
     [self feedLine];
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -54,7 +65,7 @@
                                       if (!error) {
                                           
                                           NSError *JSONError = nil;
-                                          jsonResultsArray = [NSJSONSerialization JSONObjectWithData: data options: NSJSONReadingMutableContainers error: &JSONError];
+                                          //                                          jsonResultsArray = [NSJSONSerialization JSONObjectWithData: data options: NSJSONReadingMutableContainers error: &JSONError];
                                           json = [NSJSONSerialization JSONObjectWithData:data options:0 error:&JSONError];
                                           
                                           if (JSONError) {
@@ -65,7 +76,12 @@
                                           else{
                                               dispatch_async(dispatch_get_main_queue(),^{
                                                   NSLog(@"YES %@",json);
-                                                   [self.tableView reloadData];
+                                                  NSString*html_str = [[json objectForKey:@"info"] objectForKey:@"about"];
+                                                  [web_view loadHTMLString:html_str baseURL:nil];
+                                                  docs = [json objectForKey:@"docs"];
+                                                  
+                                                  
+                                                  [mTable reloadData];
                                               });
                                           }
                                       }
@@ -91,16 +107,21 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return jsonResultsArray.count;
+    return docs.count;
+}
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return 70;
 }
 
-
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    DocListTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"DocListTableViewCell" forIndexPath:indexPath];
+    DocListCommisionTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"DocListCommisionTableViewCell" forIndexPath:indexPath];
     if (cell == nil) {
-        cell = [[DocListTableViewCell alloc]  initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"DocListTableViewCell"];
+        cell = [[DocListCommisionTableViewCell alloc]  initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"DocListCommisionTableViewCell"];
     }
-    cell.textLabel.text = [[jsonResultsArray objectAtIndex:indexPath.row] objectForKey:@"caption"];
+    cell.textLabel.text = [[docs objectAtIndex:indexPath.row] objectForKey:@"caption"];
+    if ([[[docs objectAtIndex:indexPath.row] objectForKey:@"caption"] length]>50) {
+        cell.textLabel.numberOfLines = 2;
+    }
     return cell;
 }
 
@@ -111,48 +132,5 @@
     [self.navigationController pushViewController:controller animated:YES];
 }
 
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

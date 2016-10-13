@@ -9,6 +9,7 @@
 #import "CalendarTableViewController.h"
 #import "CalendarTableViewCell.h"
 #import "DocListTableViewController.h"
+#import "DocListCommisionViewController.h"
 @interface CalendarTableViewController ()
 @property (nonatomic, strong) NSMutableArray *items;
 @end
@@ -124,10 +125,18 @@
 //linkid
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     UIStoryboard *storyBoard = [self storyboard];
-    DocListTableViewController*controller = [storyBoard instantiateViewControllerWithIdentifier:@"DocListTableViewController"];
-    controller.id_str = [[_items objectAtIndex:indexPath.row] objectForKey:@"id"];
-    controller.object = [[_items objectAtIndex:indexPath.row] objectForKey:@"linkid"];
-    [self.navigationController pushViewController:controller animated:YES];
+    if ([[[_items objectAtIndex:indexPath.row] objectForKey:@"type"] isEqualToString:@"comission"] || [[[_items objectAtIndex:indexPath.row] objectForKey:@"type"] isEqualToString:@"presidium"] || [[[_items objectAtIndex:indexPath.row] objectForKey:@"type"] isEqualToString:@"sovet"]) {
+        DocListCommisionViewController*controller = [storyBoard instantiateViewControllerWithIdentifier:@"DocListCommisionViewController"];
+        controller.id_str = [[_items objectAtIndex:indexPath.row] objectForKey:@"linkid"];
+        controller.object = [[_items objectAtIndex:indexPath.row] objectForKey:@"type"];
+        [self.navigationController pushViewController:controller animated:YES];
+    }
+    else{
+        DocListTableViewController*controller = [storyBoard instantiateViewControllerWithIdentifier:@"DocListTableViewController"];
+        controller.id_str = [[_items objectAtIndex:indexPath.row] objectForKey:@"linkid"];
+        controller.object = [[_items objectAtIndex:indexPath.row] objectForKey:@"type"];
+        [self.navigationController pushViewController:controller animated:YES];
+    }
 }
 
 /*
