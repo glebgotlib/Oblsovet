@@ -30,6 +30,8 @@
 		8C0EFE2B1D92E7AD00CC9578 /* rightMenu.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8C0EFE271D92E7AD00CC9578 /* rightMenu.jpg */; };
 		8C2209B51DAE80BB0020EC2D /* DocListCommisionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C2209B41DAE80BB0020EC2D /* DocListCommisionViewController.m */; };
 		8C2209B81DAE99390020EC2D /* DocListCommisionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C2209B71DAE99390020EC2D /* DocListCommisionTableViewCell.m */; };
+		8C2209BA1DB0FF0A0020EC2D /* flag_texture611.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8C2209B91DB0FF0A0020EC2D /* flag_texture611.jpg */; };
+		8C2209BC1DB0FFC90020EC2D /* isoObl.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C2209BB1DB0FFC90020EC2D /* isoObl.png */; };
 		8C7A8F261D933DCE00CA3D4F /* ListOfCommissionsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C7A8F251D933DCE00CA3D4F /* ListOfCommissionsTableViewController.m */; };
 		8C7A8F291D933E4A00CA3D4F /* ListOfCommissionsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C7A8F281D933E4A00CA3D4F /* ListOfCommissionsTableViewCell.m */; };
 		8C7A8F2D1D93421300CA3D4F /* CommissionDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C7A8F2C1D93421300CA3D4F /* CommissionDetailsViewController.m */; };
@@ -104,6 +106,8 @@
 		8C2209B41DAE80BB0020EC2D /* DocListCommisionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DocListCommisionViewController.m; sourceTree = "<group>"; };
 		8C2209B61DAE99390020EC2D /* DocListCommisionTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DocListCommisionTableViewCell.h; sourceTree = "<group>"; };
 		8C2209B71DAE99390020EC2D /* DocListCommisionTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DocListCommisionTableViewCell.m; sourceTree = "<group>"; };
+		8C2209B91DB0FF0A0020EC2D /* flag_texture611.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = flag_texture611.jpg; path = img/flag_texture611.jpg; sourceTree = "<group>"; };
+		8C2209BB1DB0FFC90020EC2D /* isoObl.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = isoObl.png; path = img/isoObl.png; sourceTree = "<group>"; };
 		8C7A8F241D933DCE00CA3D4F /* ListOfCommissionsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListOfCommissionsTableViewController.h; sourceTree = "<group>"; };
 		8C7A8F251D933DCE00CA3D4F /* ListOfCommissionsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListOfCommissionsTableViewController.m; sourceTree = "<group>"; };
 		8C7A8F271D933E4A00CA3D4F /* ListOfCommissionsTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListOfCommissionsTableViewCell.h; sourceTree = "<group>"; };
@@ -185,6 +189,8 @@
 		8C0DF9401D91619B00036295 /* Image */ = {
 			isa = PBXGroup;
 			children = (
+				8C2209BB1DB0FFC90020EC2D /* isoObl.png */,
+				8C2209B91DB0FF0A0020EC2D /* flag_texture611.jpg */,
 				8C0EFE241D92E7AD00CC9578 /* animation.png */,
 				8C0EFE251D92E7AD00CC9578 /* gear.png */,
 				8C0EFE261D92E7AD00CC9578 /* leftMenu.jpg */,
@@ -497,10 +503,12 @@
 			files = (
 				8C0DF9441D9161E700036295 /* login.png in Resources */,
 				8C0DF9461D91641300036295 /* beautiful_stars_in_galaxy.jpg in Resources */,
+				8C2209BA1DB0FF0A0020EC2D /* flag_texture611.jpg in Resources */,
 				8CFDC93E1DA3DB10009F9D23 /* sessdocsfile_dok-22_30358.docx in Resources */,
 				8C0EFE2B1D92E7AD00CC9578 /* rightMenu.jpg in Resources */,
 				8C0EFE2A1D92E7AD00CC9578 /* leftMenu.jpg in Resources */,
 				8C8920931D90590C001528FA /* LaunchScreen.storyboard in Resources */,
+				8C2209BC1DB0FFC90020EC2D /* isoObl.png in Resources */,
 				8C0EFE281D92E7AD00CC9578 /* animation.png in Resources */,
 				8C8920901D90590C001528FA /* Assets.xcassets in Resources */,
 				8C0EFE291D92E7AD00CC9578 /* gear.png in Resources */,

@@ -188,19 +188,13 @@
         }
         else if (selectedSegment == 2)   {
             //toggle the correct view to be visible
-            NSLog(@"3");
-            selector = 1;
-            _items = [[NSMutableArray alloc] initWithObjects:sovet_dict, nil];
-        }
-        else if (selectedSegment == 3)   {
-            //toggle the correct view to be visible
-            NSLog(@"4");
+            NSLog(@"2");
             selector = 1;
             _items = [[NSMutableArray alloc] initWithObjects:fraction_dict, nil];
         }
         else    {
-            NSLog(@"5");
-            selector = 2;
+            NSLog(@"3");
+            selector = 3;
             _items = depgroup_arr;
         }
     [_mTable reloadData];

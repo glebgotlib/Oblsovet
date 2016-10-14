@@ -64,57 +64,68 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+//    Komision = "Комиссії";
+//    Session = "Сессії";
+//    Calendar = "Календар";
+//    Presidium = "Президіум";
+//    Sovet = "Согласителный совет";
+//    Mess = "Повідомлення";
+//    Deputat = "Депутати";
+//    DepGrups = "Депутатскі групи";
+//    Spravkic = "Довідник";
+//    Login = "Увійти";
+//    Fraktion = "Фракція";
 	UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"leftMenuCell"];
     cell.textLabel.textColor = [UIColor whiteColor];
     [cell.textLabel setFont:[UIFont systemFontOfSize:20]];
 	switch (indexPath.row)
 	{
 		case 0:
-			cell.textLabel.text = @"Новости";
+			cell.textLabel.text = NSLocalizedString(@"News", nil);
 			break;
 			
 		case 1:
-			cell.textLabel.text = @"Комиссии";
+			cell.textLabel.text = NSLocalizedString(@"Komision", nil);
 			break;
 			
 		case 2:
-			cell.textLabel.text = @"Сессии";
+			cell.textLabel.text = NSLocalizedString(@"Session", nil);
 			break;
 			
 		case 3:
-			cell.textLabel.text = @"Календарь";
+			cell.textLabel.text = NSLocalizedString(@"Calendar", nil);
 			break;
             
         case 4:
-            cell.textLabel.text = @"Президиум";
+            cell.textLabel.text = NSLocalizedString(@"Presidium", nil);
             break;
             
         case 5:
-            cell.textLabel.text = @"Согласителный совет";
+            cell.textLabel.text = NSLocalizedString(@"Sovet", nil);
             break;
             
         case 6:
-            cell.textLabel.text = @"Фракции";
+            cell.textLabel.text = NSLocalizedString(@"Fraktion", nil);
             break;
             
         case 7:
-            cell.textLabel.text = @"Депутатские группы";
+            cell.textLabel.text = NSLocalizedString(@"DepGrups", nil);
             break;
             
         case 8:
-            cell.textLabel.text = @"Сообщения";
+            cell.textLabel.text = NSLocalizedString(@"Mess", nil);
             break;
             
         case 9:
-            cell.textLabel.text = @"Депутаты";
+            cell.textLabel.text = NSLocalizedString(@"Deputat", nil);
             break;
             
         case 10:
-            cell.textLabel.text = @"Справочник";
+            cell.textLabel.text = NSLocalizedString(@"Spravkic", nil);
             break;
             
         case 11:
-            cell.textLabel.text = @"Log In";
+            cell.textLabel.text =NSLocalizedString(@"Login", nil);
             break;
 	}
 	

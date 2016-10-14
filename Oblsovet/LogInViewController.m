@@ -20,7 +20,7 @@
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [_logIn_button setTitle:@"Шалом!" forState:UIControlStateNormal];
+    [_logIn_button setTitle:NSLocalizedString(@"Login", nil) forState:UIControlStateNormal];
     _login_textfield.delegate = self;
     _login_textfield.returnKeyType = UIReturnKeyDone;
     _login_textfield.clearButtonMode = UITextFieldViewModeWhileEditing;
@@ -95,12 +95,18 @@
                                           else{
                                               dispatch_async(dispatch_get_main_queue(),^{
                                                   NSLog(@"YES %@",json);
-                                                   [[NSUserDefaults standardUserDefaults] setObject:[[json objectForKey:@"info"] objectForKey:@"cookievar"] forKey:@"preferenceName"];
-                                                  NSLog(@"cookievar ========    %@",[[json objectForKey:@"info"] objectForKey:@"cookievar"]);
-                                                  UIStoryboard *storyBoard = [self storyboard];
-                                                  MainTableViewController *controller = [storyBoard instantiateViewControllerWithIdentifier:@"MainTableViewController"];
-                                                  [self.navigationController pushViewController:controller animated:YES];
-                                                  
+                                                  if(json.count != 0)
+                                                  {
+                                                       [[NSUserDefaults standardUserDefaults] setObject:[[json objectForKey:@"info"] objectForKey:@"cookievar"] forKey:@"preferenceName"];
+                                                      NSLog(@"cookievar ========    %@",[[json objectForKey:@"info"] objectForKey:@"cookievar"]);
+                                                      UIStoryboard *storyBoard = [self storyboard];
+                                                      MainTableViewController *controller = [storyBoard instantiateViewControllerWithIdentifier:@"MainTableViewController"];
+                                                      [self.navigationController pushViewController:controller animated:YES];
+                                                  }
+                                                  else{
+                                                      UIAlertView* errorAlert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Sorry", nil) message:NSLocalizedString(@"Wrong login or password", nil)  delegate: self cancelButtonTitle:@"ok" otherButtonTitles:nil];
+                                                      [errorAlert show];
+                                                  }
                                               });
                                               
                                               
