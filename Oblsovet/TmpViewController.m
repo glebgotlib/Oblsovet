@@ -26,6 +26,9 @@
     self.cachedFeedImages = [[NSMutableDictionary alloc] init];
     NSLog(@"ID== %@",_selectedId);
     selector = 0;
+    if ([_object isEqualToString:@"session"]){
+        [_switchers setTitle:@"Анонс" forSegmentAtIndex:0];
+    }
     [self eventsFuture];
     // Do any additional setup after loading the view.
 }

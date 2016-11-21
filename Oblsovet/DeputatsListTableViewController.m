@@ -125,6 +125,8 @@
         cell = [[DeputatsListTableViewCell alloc]  initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"DeputatsListTableViewCell"];
     }
     cell.name_lab.text = [[_items objectAtIndex:indexPath.row] objectForKey:@"caption"];
+    cell.name_lab.numberOfLines = 0;
+    [cell.name_lab sizeToFit];
     cell.work_lab.text = [[_items objectAtIndex:indexPath.row] objectForKey:@"work"];
     cell.work_lab.numberOfLines = 2;
     NSString *identifier = [NSString stringWithFormat:@"Celltde__%ld", (long)indexPath.row];

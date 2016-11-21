@@ -57,7 +57,7 @@
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 144;
+    return 100;
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     MessagesTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MessagesTableViewCell" forIndexPath:indexPath];
@@ -78,8 +78,8 @@
 
     cell.title_lab.text = [[jsonResultsArray objectAtIndex:indexPath.row] objectForKey:@"caption"];
     cell.date_lab.text = [dateFormatter stringFromDate:[NSDate dateWithTimeIntervalSince1970:(NSTimeInterval)[[[jsonResultsArray objectAtIndex:indexPath.row] objectForKey:@"date"]intValue]]];
-    cell.resiver.text = [[jsonResultsArray objectAtIndex:indexPath.row] objectForKey:@"reciever"];
-    cell.for_whom.text = [[jsonResultsArray objectAtIndex:indexPath.row] objectForKey:@"level"];
+    cell.resiver.text = [[jsonResultsArray objectAtIndex:indexPath.row] objectForKey:@"level"];
+//    cell.for_whom.text = [[jsonResultsArray objectAtIndex:indexPath.row] objectForKey:@"level"];
 
     
     // Configure the cell...

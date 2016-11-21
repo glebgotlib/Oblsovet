@@ -39,11 +39,15 @@
         [self feedLine];
     }
     swither.selectedSegmentIndex = selector;
-    if([_object isEqualToString:@"depgroup"])
+    if([_object isEqualToString:@"depgroup"] || [_object isEqualToString:@"fraction"])
     {
-        UILabel*labq = [[UILabel alloc] initWithFrame:CGRectMake(0, 64, self.view.frame.size.width, 20)];
+        UILabel*labq = [[UILabel alloc] initWithFrame:CGRectMake(0, 64, self.view.frame.size.width, 40)];
         labq.text = self.selectorName;
         labq.textAlignment = NSTextAlignmentCenter;
+        if (_selectorName.length>30) {
+            [labq setFont:[UIFont systemFontOfSize:12]];
+            labq.numberOfLines=2;
+        }
         [self.view addSubview:labq];
         [swither setHidden:YES];
     }

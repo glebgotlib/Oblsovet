@@ -31,4 +31,9 @@
 @property (strong, readwrite)  NSString* id_str;
 
 
+@property (weak, nonatomic) IBOutlet UILabel *fraction_in;
+@property (weak, nonatomic) IBOutlet UILabel *comission_in;
+@property (weak, nonatomic) IBOutlet UILabel *depgrup_in;
+
+
 @end

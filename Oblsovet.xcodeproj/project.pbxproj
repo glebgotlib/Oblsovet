@@ -32,6 +32,8 @@
 		8C2209B81DAE99390020EC2D /* DocListCommisionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C2209B71DAE99390020EC2D /* DocListCommisionTableViewCell.m */; };
 		8C2209BA1DB0FF0A0020EC2D /* flag_texture611.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8C2209B91DB0FF0A0020EC2D /* flag_texture611.jpg */; };
 		8C2209BC1DB0FFC90020EC2D /* isoObl.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C2209BB1DB0FFC90020EC2D /* isoObl.png */; };
+		8C2C150A1DBE489E005E8B33 /* Coat_of_Arms_of_Odesa_Oblast.svg.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C2C15081DBE489E005E8B33 /* Coat_of_Arms_of_Odesa_Oblast.svg.png */; };
+		8C2C150B1DBE489E005E8B33 /* newsvideopic_so-zdaniya-odesskoj-oblgosadministracii-snyali-f33165.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8C2C15091DBE489E005E8B33 /* newsvideopic_so-zdaniya-odesskoj-oblgosadministracii-snyali-f33165.jpg */; };
 		8C7A8F261D933DCE00CA3D4F /* ListOfCommissionsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C7A8F251D933DCE00CA3D4F /* ListOfCommissionsTableViewController.m */; };
 		8C7A8F291D933E4A00CA3D4F /* ListOfCommissionsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C7A8F281D933E4A00CA3D4F /* ListOfCommissionsTableViewCell.m */; };
 		8C7A8F2D1D93421300CA3D4F /* CommissionDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C7A8F2C1D93421300CA3D4F /* CommissionDetailsViewController.m */; };
@@ -58,6 +60,7 @@
 		8C8E48881D9C721A00EC6EEB /* CalendarTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C8E48871D9C721A00EC6EEB /* CalendarTableViewCell.m */; };
 		8C8E488B1D9C764600EC6EEB /* FractionTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C8E488A1D9C764600EC6EEB /* FractionTableViewController.m */; };
 		8C8E488E1D9C767300EC6EEB /* DepGrupsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C8E488D1D9C767300EC6EEB /* DepGrupsTableViewController.m */; };
+		8CB5669A1DE2F016007FCA65 /* SpravkiViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CB566991DE2F016007FCA65 /* SpravkiViewController.m */; };
 		8CFDC9301DA3B382009F9D23 /* DocListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CFDC92F1DA3B381009F9D23 /* DocListTableViewController.m */; };
 		8CFDC9331DA3B397009F9D23 /* DocsInsideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CFDC9321DA3B397009F9D23 /* DocsInsideViewController.m */; };
 		8CFDC9361DA3BC3E009F9D23 /* DocListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CFDC9351DA3BC3E009F9D23 /* DocListTableViewCell.m */; };
@@ -108,6 +111,8 @@
 		8C2209B71DAE99390020EC2D /* DocListCommisionTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DocListCommisionTableViewCell.m; sourceTree = "<group>"; };
 		8C2209B91DB0FF0A0020EC2D /* flag_texture611.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = flag_texture611.jpg; path = img/flag_texture611.jpg; sourceTree = "<group>"; };
 		8C2209BB1DB0FFC90020EC2D /* isoObl.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = isoObl.png; path = img/isoObl.png; sourceTree = "<group>"; };
+		8C2C15081DBE489E005E8B33 /* Coat_of_Arms_of_Odesa_Oblast.svg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Coat_of_Arms_of_Odesa_Oblast.svg.png; path = img/Coat_of_Arms_of_Odesa_Oblast.svg.png; sourceTree = "<group>"; };
+		8C2C15091DBE489E005E8B33 /* newsvideopic_so-zdaniya-odesskoj-oblgosadministracii-snyali-f33165.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "newsvideopic_so-zdaniya-odesskoj-oblgosadministracii-snyali-f33165.jpg"; path = "img/newsvideopic_so-zdaniya-odesskoj-oblgosadministracii-snyali-f33165.jpg"; sourceTree = "<group>"; };
 		8C7A8F241D933DCE00CA3D4F /* ListOfCommissionsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListOfCommissionsTableViewController.h; sourceTree = "<group>"; };
 		8C7A8F251D933DCE00CA3D4F /* ListOfCommissionsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListOfCommissionsTableViewController.m; sourceTree = "<group>"; };
 		8C7A8F271D933E4A00CA3D4F /* ListOfCommissionsTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListOfCommissionsTableViewCell.h; sourceTree = "<group>"; };
@@ -160,6 +165,8 @@
 		8C8E488A1D9C764600EC6EEB /* FractionTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FractionTableViewController.m; sourceTree = "<group>"; };
 		8C8E488C1D9C767300EC6EEB /* DepGrupsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DepGrupsTableViewController.h; sourceTree = "<group>"; };
 		8C8E488D1D9C767300EC6EEB /* DepGrupsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DepGrupsTableViewController.m; sourceTree = "<group>"; };
+		8CB566981DE2F016007FCA65 /* SpravkiViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpravkiViewController.h; sourceTree = "<group>"; };
+		8CB566991DE2F016007FCA65 /* SpravkiViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpravkiViewController.m; sourceTree = "<group>"; };
 		8CFDC92E1DA3B381009F9D23 /* DocListTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DocListTableViewController.h; sourceTree = "<group>"; };
 		8CFDC92F1DA3B381009F9D23 /* DocListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DocListTableViewController.m; sourceTree = "<group>"; };
 		8CFDC9311DA3B397009F9D23 /* DocsInsideViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DocsInsideViewController.h; sourceTree = "<group>"; };
@@ -189,6 +196,8 @@
 		8C0DF9401D91619B00036295 /* Image */ = {
 			isa = PBXGroup;
 			children = (
+				8C2C15081DBE489E005E8B33 /* Coat_of_Arms_of_Odesa_Oblast.svg.png */,
+				8C2C15091DBE489E005E8B33 /* newsvideopic_so-zdaniya-odesskoj-oblgosadministracii-snyali-f33165.jpg */,
 				8C2209BB1DB0FFC90020EC2D /* isoObl.png */,
 				8C2209B91DB0FF0A0020EC2D /* flag_texture611.jpg */,
 				8C0EFE241D92E7AD00CC9578 /* animation.png */,
@@ -351,6 +360,8 @@
 				8C0DF9401D91619B00036295 /* Image */,
 				8C7A8F221D933CF600CA3D4F /* Storyboard */,
 				8C8920831D90590C001528FA /* Supporting Files */,
+				8CB566981DE2F016007FCA65 /* SpravkiViewController.h */,
+				8CB566991DE2F016007FCA65 /* SpravkiViewController.m */,
 			);
 			path = Oblsovet;
 			sourceTree = "<group>";
@@ -506,9 +517,11 @@
 				8C2209BA1DB0FF0A0020EC2D /* flag_texture611.jpg in Resources */,
 				8CFDC93E1DA3DB10009F9D23 /* sessdocsfile_dok-22_30358.docx in Resources */,
 				8C0EFE2B1D92E7AD00CC9578 /* rightMenu.jpg in Resources */,
+				8C2C150A1DBE489E005E8B33 /* Coat_of_Arms_of_Odesa_Oblast.svg.png in Resources */,
 				8C0EFE2A1D92E7AD00CC9578 /* leftMenu.jpg in Resources */,
 				8C8920931D90590C001528FA /* LaunchScreen.storyboard in Resources */,
 				8C2209BC1DB0FFC90020EC2D /* isoObl.png in Resources */,
+				8C2C150B1DBE489E005E8B33 /* newsvideopic_so-zdaniya-odesskoj-oblgosadministracii-snyali-f33165.jpg in Resources */,
 				8C0EFE281D92E7AD00CC9578 /* animation.png in Resources */,
 				8C8920901D90590C001528FA /* Assets.xcassets in Resources */,
 				8C0EFE291D92E7AD00CC9578 /* gear.png in Resources */,
@@ -591,6 +604,7 @@
 				8C0EFE1D1D92E77100CC9578 /* SlideNavigationContorllerAnimatorScale.m in Sources */,
 				8C7A8F301D9345DA00CA3D4F /* DeputatTableViewCell.m in Sources */,
 				8C8E48811D9C597600EC6EEB /* DeputatsListTableViewController.m in Sources */,
+				8CB5669A1DE2F016007FCA65 /* SpravkiViewController.m in Sources */,
 				8C7A8F2D1D93421300CA3D4F /* CommissionDetailsViewController.m in Sources */,
 				8C0EFE1E1D92E77100CC9578 /* SlideNavigationContorllerAnimatorScaleAndFade.m in Sources */,
 				8C8E485F1D9C11FF00EC6EEB /* SessionsTableViewController.m in Sources */,

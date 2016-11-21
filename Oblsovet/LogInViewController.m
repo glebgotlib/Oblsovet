@@ -20,7 +20,9 @@
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.navigationItem.title = NSLocalizedString(@"Login", nil);
     [_logIn_button setTitle:NSLocalizedString(@"Login", nil) forState:UIControlStateNormal];
+    [_logIn_button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     _login_textfield.delegate = self;
     _login_textfield.returnKeyType = UIReturnKeyDone;
     _login_textfield.clearButtonMode = UITextFieldViewModeWhileEditing;
@@ -31,6 +33,11 @@
     _pass_textfield.clearButtonMode = UITextFieldViewModeWhileEditing;
     _pass_textfield.autocorrectionType = UITextAutocorrectionTypeNo;
     // Do any additional setup after loading the view.
+}
+
+- (BOOL)slideNavigationControllerShouldDisplayLeftMenu
+{
+    return YES;
 }
 
 - (void)didReceiveMemoryWarning {

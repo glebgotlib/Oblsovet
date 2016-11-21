@@ -8,7 +8,7 @@
 
 #import "DeputatsDetailsInfoViewController.h"
 #import "ListOfCommissionsTableViewCell.h"
-@interface DeputatsDetailsInfoViewController ()<UITableViewDelegate,UITableViewDataSource>
+@interface DeputatsDetailsInfoViewController ()
 @property (strong ,nonatomic) NSMutableDictionary *cachedFeedImages;
 @property (nonatomic, strong) NSMutableArray *items;
 
@@ -85,8 +85,16 @@
                                                   depgroup_arr = [json objectForKey:@"depgroup"];
                                                   comission_dict = [json objectForKey:@"comission"];
                                                    _items = [[NSMutableArray alloc] initWithObjects:comission_dict, nil];
+                                                  
+                                                  
+                                                  _fraction_in.text = [fraction_dict objectForKey:@"caption"];
+                                                  NSLog(@"%@",[fraction_dict objectForKey:@"caption"]);
+                                                  _comission_in.text = [comission_dict objectForKey:@"caption"];
+                                                  if (depgroup_arr.count > 0) {
+                                                      _depgrup_in.text = [[depgroup_arr objectAtIndex:0] objectForKey:@"caption"];
+                                                  }
 //                                                  [_items addObject:sovet_dict];
-                                                  [_mTable reloadData];
+//                                                  [_mTable reloadData];
                                               });
                                           }
                                       }
@@ -103,25 +111,25 @@
     // Start the task.
     [task resume];
 }
-
--(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return _items.count;
-}
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 1;
-}
-
--(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    static NSString *CellIdentifier = @"ListOfCommissionsTableViewCell";
-    ListOfCommissionsTableViewCell *cell = (ListOfCommissionsTableViewCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    if (cell == nil) {
-        cell = [[ListOfCommissionsTableViewCell alloc]  initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
-    }
-    cell.textLabel.text = [[_items objectAtIndex:indexPath.row] objectForKey:@"caption"];
-    
-    return cell;
-}
+//
+//-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+//    return _items.count;
+//}
+//
+//- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+//    return 1;
+//}
+//
+//-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+//    static NSString *CellIdentifier = @"ListOfCommissionsTableViewCell";
+//    ListOfCommissionsTableViewCell *cell = (ListOfCommissionsTableViewCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+//    if (cell == nil) {
+//        cell = [[ListOfCommissionsTableViewCell alloc]  initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+//    }
+//    cell.textLabel.text = [[_items objectAtIndex:indexPath.row] objectForKey:@"caption"];
+//    
+//    return cell;
+//}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -169,34 +177,34 @@
     }
 }
 
-- (IBAction)switchTap:(UISegmentedControl *)sender {
-        UISegmentedControl *segmentedControl = (UISegmentedControl *) sender;
-        NSInteger selectedSegment = segmentedControl.selectedSegmentIndex;
-//        [_items removeAllObjects];
-    
-        if (selectedSegment == 0) {
-            //toggle the correct view to be visible
-            NSLog(@"1");
-            selector = 0;
-            _items = [[NSMutableArray alloc] initWithObjects:comission_dict, nil];
-        }
-        else if (selectedSegment == 1)   {
-            //toggle the correct view to be visible
-            NSLog(@"2");
-            selector = 1;
-            _items = [[NSMutableArray alloc] initWithObjects:presidium_dict, nil];
-        }
-        else if (selectedSegment == 2)   {
-            //toggle the correct view to be visible
-            NSLog(@"2");
-            selector = 1;
-            _items = [[NSMutableArray alloc] initWithObjects:fraction_dict, nil];
-        }
-        else    {
-            NSLog(@"3");
-            selector = 3;
-            _items = depgroup_arr;
-        }
-    [_mTable reloadData];
-}
+//- (IBAction)switchTap:(UISegmentedControl *)sender {
+//        UISegmentedControl *segmentedControl = (UISegmentedControl *) sender;
+//        NSInteger selectedSegment = segmentedControl.selectedSegmentIndex;
+////        [_items removeAllObjects];
+//    
+//        if (selectedSegment == 0) {
+//            //toggle the correct view to be visible
+//            NSLog(@"1");
+//            selector = 0;
+//            _items = [[NSMutableArray alloc] initWithObjects:comission_dict, nil];
+//        }
+//        else if (selectedSegment == 1)   {
+//            //toggle the correct view to be visible
+//            NSLog(@"2");
+//            selector = 1;
+//            _items = [[NSMutableArray alloc] initWithObjects:presidium_dict, nil];
+//        }
+//        else if (selectedSegment == 2)   {
+//            //toggle the correct view to be visible
+//            NSLog(@"2");
+//            selector = 1;
+//            _items = [[NSMutableArray alloc] initWithObjects:fraction_dict, nil];
+//        }
+//        else    {
+//            NSLog(@"3");
+//            selector = 3;
+//            _items = depgroup_arr;
+//        }
+//    [_mTable reloadData];
+//}
 @end

@@ -97,7 +97,7 @@
                                           else{
                                               dispatch_async(dispatch_get_main_queue(),^{
                                                  // NSLog(@"YES %@",json);
-                                                  UIAlertView* errorAlert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Ok", nil) message:NSLocalizedString(@"Message send", nil)  delegate: self cancelButtonTitle:@"ok" otherButtonTitles:nil];
+                                                  UIAlertView* errorAlert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"", nil) message:NSLocalizedString(@"Message_send", nil)  delegate: self cancelButtonTitle:@"ok" otherButtonTitles:nil];
                                                   [errorAlert show];
 
                                               });
@@ -133,7 +133,7 @@
     _no_button.enabled = NO;
 }
 - (IBAction)no_button_action:(UIButton *)sender {
-        [self feedLine:[NSURL URLWithString:[NSString stringWithFormat:@"http://oblsovet.y.od.ua/json/?object=deputat&action=answer&cookievar=%@&quest=%@&answer=1",[[NSUserDefaults standardUserDefaults] stringForKey:@"preferenceName"],_quest_str]]];
+        [self feedLine:[NSURL URLWithString:[NSString stringWithFormat:@"http://oblsovet.y.od.ua/json/?object=deputat&action=answer&cookievar=%@&quest=%@&answer=2",[[NSUserDefaults standardUserDefaults] stringForKey:@"preferenceName"],_quest_str]]];
     _yes_button.enabled = NO;
     _no_button.enabled = NO;
 }

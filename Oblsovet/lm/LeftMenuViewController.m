@@ -21,7 +21,7 @@
 #import "FractionTableViewController.h"
 #import "DepGrupsTableViewController.h"
 #import "MessagesTableViewController.h"
-
+#import "CommissionDetailsViewController.h"
 @implementation LeftMenuViewController
 
 #pragma mark - UIViewController Methods -
@@ -121,7 +121,7 @@
             break;
             
         case 10:
-            cell.textLabel.text = NSLocalizedString(@"Spravkic", nil);
+            cell.textLabel.text = NSLocalizedString(@"Spravki", nil);
             break;
             
         case 11:
@@ -163,10 +163,12 @@
             
         case 2:
         {
+//             TmpViewController*controller = [storyBoard instantiateViewControllerWithIdentifier:@"TmpViewController"];
 //            vc = [mainStoryboard instantiateViewControllerWithIdentifier: @"ListOfCommissionsTableViewController"];
-            SessionsTableViewController*cont = [mainStoryboard instantiateViewControllerWithIdentifier: @"SessionsTableViewController"];
-            [cont refresh:@"session"];
-            cont.objectR111111 = @"session";
+            TmpViewController*cont = [mainStoryboard instantiateViewControllerWithIdentifier: @"TmpViewController"];
+//            [cont refresh:@"session"];
+            cont.object = @"session";
+            cont.selectedId = @"1";
             [[SlideNavigationController sharedInstance] popToRootAndSwitchToViewController:cont
                                                                      withSlideOutAnimation:self.slideOutAnimationEnabled
                                                                              andCompletion:nil];
@@ -185,9 +187,12 @@
             
         case 4:
         {
-            PresidiumTableViewController*cont = [mainStoryboard instantiateViewControllerWithIdentifier: @"PresidiumTableViewController"];
-            [cont refresh:@"presidium"];
-            cont.objectR = @"presidium";
+//            PresidiumTableViewController*cont = [mainStoryboard instantiateViewControllerWithIdentifier: @"PresidiumTableViewController"];
+//            [cont refresh:@"presidium"];
+//            cont.objectR = @"presidium";
+            CommissionDetailsViewController*cont = [mainStoryboard instantiateViewControllerWithIdentifier: @"CommissionDetailsViewController"];
+            cont.object = @"presidium";
+            cont.selectedId = @"1";
             [[SlideNavigationController sharedInstance] popToRootAndSwitchToViewController:cont
                                                                      withSlideOutAnimation:self.slideOutAnimationEnabled
                                                                              andCompletion:nil];
@@ -196,9 +201,13 @@
             
         case 5:
         {
-            SovetTableViewController*cont = [mainStoryboard instantiateViewControllerWithIdentifier: @"SovetTableViewController"];
-            [cont refresh:@"sovet"];
-            cont.objectR = @"sovet";
+//            SovetTableViewController*cont = [mainStoryboard instantiateViewControllerWithIdentifier: @"SovetTableViewController"];
+//            [cont refresh:@"sovet"];
+//            cont.objectR = @"sovet";
+            CommissionDetailsViewController*cont = [mainStoryboard instantiateViewControllerWithIdentifier: @"CommissionDetailsViewController"];
+            cont.object = @"sovet";
+            cont.selectedId = @"1";
+
             [[SlideNavigationController sharedInstance] popToRootAndSwitchToViewController:cont
                                                                      withSlideOutAnimation:self.slideOutAnimationEnabled
                                                                              andCompletion:nil];
@@ -253,6 +262,13 @@
         }
             break;
             
+        case 10:
+                vc = [mainStoryboard instantiateViewControllerWithIdentifier: @"SpravkiViewController"];
+                [[SlideNavigationController sharedInstance] popToRootAndSwitchToViewController:vc
+                                                                         withSlideOutAnimation:self.slideOutAnimationEnabled
+                                                                                 andCompletion:nil];
+            break;
+
 		case 11:
             if ([[NSUserDefaults standardUserDefaults] stringForKey:@"preferenceName"]==nil) {
                 vc = [mainStoryboard instantiateViewControllerWithIdentifier: @"LogInViewController"];

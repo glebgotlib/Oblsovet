@@ -22,7 +22,7 @@
     [super viewDidLoad];
     [_mTable delegate];
     [_mTable dataSource];
-    self.navigationItem.title = NSLocalizedString(@"Komision", nil);
+    self.navigationItem.title = NSLocalizedString(@"RegKomision", nil);
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;

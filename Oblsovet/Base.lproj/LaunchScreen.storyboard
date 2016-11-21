@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="flag_texture611.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="1X6-hm-nBl"/>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="isoObl.png" translatesAutoresizingMaskIntoConstraints="NO" id="g8o-s1-TdF">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Coat_of_Arms_of_Odesa_Oblast.svg.png" translatesAutoresizingMaskIntoConstraints="NO" id="g8o-s1-TdF">
                                 <constraints>
                                     <constraint firstAttribute="height" constant="223" id="JBA-Zg-kSt"/>
                                     <constraint firstAttribute="width" constant="225" id="oSs-kx-K1k"/>
@@ -43,7 +43,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Coat_of_Arms_of_Odesa_Oblast.svg.png" width="458" height="450"/>
         <image name="flag_texture611.jpg" width="1920" height="1200"/>
-        <image name="isoObl.png" width="228" height="228"/>
     </resources>
 </document>
